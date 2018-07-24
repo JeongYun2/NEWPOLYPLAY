@@ -4,6 +4,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -109,21 +111,32 @@ public class ReviewController {
 	
 	
 	@RequestMapping(value="/ReviewWrite")
-	public String reviewWriteController() {
+	public String reviewWriteController(@RequestParam("cidx") int cidx, Model model, HttpSession session) {
 		
 		System.out.println("reviewWriteController들어옴");
+		
+		int midx = (Integer)session.getAttribute("sMemberMidx");
+		
+		model.addAttribute("midx", midx);
+		model.addAttribute("cidx", cidx);
+		
+		System.out.println("ReviewWrite cidx: "+cidx);
 		
 		return "views/contents/contentsReviewWrite";
 	}
 	
 	@RequestMapping(value="/ReviewWriteAction")
-	public String reviewWriteActionController(@RequestParam("rPoint")int rPoint,@RequestParam("rContent")String rContent,
-			@ModelAttribute("rv") ReviewVo rv) {
+	public String reviewWriteActionController(@RequestParam("cidx") int cidx, @RequestParam("midx") int midx,
+			@RequestParam("rPoint")int rPoint,@RequestParam("rContent")String rContent,
+			@ModelAttribute("rv") ReviewVo rv, Model model) {
 		
 		System.out.println("reviewWriteActionController들어옴");
+		System.out.println("cidx: "+cidx);
 		System.out.println("rPoint: "+rPoint);
 		System.out.println("rContent: "+rContent);
 		
+		rv.setMidx(midx);
+		rv.setCidx(cidx);
 		rv.setrPoint(rPoint);
 		rv.setrContent(rContent);
 		
@@ -138,9 +151,11 @@ public class ReviewController {
 		
 		
 		rs.insertReview(rv);
+		
+		model.addAttribute("cidx", cidx);
 	
 		
-		return "views/contents/contentsReview";
+		return "redirect:/ReviewList";
 	}
 
 }

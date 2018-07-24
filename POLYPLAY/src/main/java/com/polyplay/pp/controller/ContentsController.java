@@ -65,12 +65,14 @@ public class ContentsController {
 	public String contentsInfoController(@RequestParam("cidx") int cidx,Model model) {
 		//selectContentsInfo
 		
+		System.out.println("cidx :"+cidx);
+		
 		ContentsVo cv = null;
 		cv = cs.selectContentsInfo(cidx);
 		
 		System.out.println("cv :"+cv);
 		
-		System.out.println("cidx :"+cidx);
+		
 		model.addAttribute("cv", cv);
 		
 		

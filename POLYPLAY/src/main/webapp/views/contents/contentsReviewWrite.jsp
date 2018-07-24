@@ -49,6 +49,8 @@
 <br>
 <br>
 <Form name="frm">
+ <input type="text" name="cidx" id="cidx" value="${cidx}" />
+  <input type="text" name="midx" id="midx" value="${midx}" />
 <table>
 <tr>
 <td> 

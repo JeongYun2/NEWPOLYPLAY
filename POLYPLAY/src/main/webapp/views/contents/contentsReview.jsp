@@ -53,8 +53,8 @@ function reviewList(){
 					 	+ "<td>"+this.ridx+"</td>"
 						+ "<td width='50%'>"+this.rContent+"</td>" 
 						/* + "<td>"+this.rLike+"<span><a class='like-Unlike' href='''>추천</a></span></td>" */
-						
-						+"<td>"+this.rLike+"<button class='btn btn-danger' onclick='likeUpdate("+this.ridx+");'>추천</button></td>"
+						+ "<td>"+this.rLike+"</td>"
+						+"<td><button class='btn btn-danger' onclick='likeUpdate("+this.ridx+");'>추천</button></td>"
 						
 				     	+ "<td>"+this.rPoint+"</td>" 
 					 	+ "</tr>";					
@@ -65,6 +65,7 @@ function reviewList(){
 				 			 + "<td>ridx</td>"
 				 			 + "<td width='50%'>100자평</td>" 
 				 			 + "<td>추천수</td>"
+				 			 + "<td>추천하기</td>"
 				 			 + "<td>별점</td>" 
 				   		 	 + "</tr>" 
 				 			 + str
@@ -156,7 +157,7 @@ function reviewList(){
 <br>
 
 <form name="frm">
- <input type="text" name="cidx" id="cidx" value="${cidx}" />
+ <input type="hidden" name="cidx" id="cidx" value="${cidx}" />
 
 <div id="tbl"></div>
 
@@ -167,7 +168,7 @@ function reviewList(){
 
 <div style="text-align:right;">
 
-	
+<br><br>	
 <button type="button" class="btn btn-primary" id="reviewWrite" name="reviewWrite" onclick="reviewWrite();">리뷰작성</button>
 			<br>
 			<br>

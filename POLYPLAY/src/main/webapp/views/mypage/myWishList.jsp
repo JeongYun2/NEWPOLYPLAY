@@ -33,7 +33,7 @@
 
 </c:choose>
 
-<input type="text" id="midx" name="midx" value="${sMemberMidx}"/>
+<input type="hidden" id="midx" name="midx" value="${sMemberMidx}"/>
 
 <table border="1" width="80%" style="text-align: center;">
 		<!-- 속성 이름 -->

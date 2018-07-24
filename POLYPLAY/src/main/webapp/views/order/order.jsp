@@ -64,7 +64,7 @@ function payCheck() {
 <form name="frm" method="post" action="<%=request.getContextPath()%>/OrderPayAction">
 
 
-<input type="text" id="midx" name="midx" value="${sMemberMidx}"/>
+<input type="hidden" id="midx" name="midx" value="${sMemberMidx}"/>
 
 <!-- <form name="frm"> -->
 <table class="table table-striped table-bordered table-hover" style="text-align: center;">
@@ -95,16 +95,23 @@ function payCheck() {
 		</tr>
 		</c:forEach>
 	</table>
-	<c:out value="${i} "/>
-	<input type="text" name="pPrice" value="${i}">
+	총 결제금액 : <c:out value="${i} "/>
+	<input type="hidden" name="pPrice" value="${i}">
+		<br>
+	<br>
+	주문번호 : <c:out value="${j} "/>
+	<input type="hidden" name="oid" value="${j}">
 	
-	<c:out value="${j} "/>
-	<input type="text" name="oid" value="${j}">
-	
 	<br>
 	<br>
 	<br>
-	**결제주의사항
+	***결제주의사항***<br>
+무통장 입금은 pc뱅킹,인터넷뱅킹 텔레뱅킹 혹은 가까운 은행에서 직접 입금하시면 됩니다<br>
+주문시 입력한 임금자명과 실제 입금자의 성명이 반드시 일치하여야 하면, 7일 이내로 입금을 하셔야 하고 입금 되지 않은 주문은 
+자동취소 됩니다.<br><br>
+
+카드 결제의 경우 안전을 위해 카드사에서 확인 전화를 드릴 수 있습니다<br> 확인 과정에서 도난 카드의 사용이나 타인 명의의 주문 등
+정상적인 주문이 아니라고 판단될 경우 임의로 주문을 보류 또는 취소할 수 있습니다.<br>
 	<br>
 	<br>
 	
@@ -119,7 +126,7 @@ function payCheck() {
 	<br>
 	입금자명 : <input type="text" name="pDepositor" id="pDepositor" size="20" maxlength="20"/>
 
-<input type="submit"  id="pay" name="pay" value="결제하기"  />
+<button type="submit"  class="btn btn-primary" id="pay" name="pay">결제하기</button>
 
 
 </form>

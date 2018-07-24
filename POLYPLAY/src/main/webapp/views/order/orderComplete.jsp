@@ -12,6 +12,33 @@
 <title>Insert title here</title>
 </head>
 
+<script type="text/javascript">
+function goMain(){
+	
+//	alert("작동합니까?");
+	var formname = document.frm;
+
+		formname.method = "post";
+		formname.action = "<%=request.getContextPath()%>/MainList";
+		formname.submit();
+	
+	return;		
+}
+
+
+function goMyOrder(){
+	
+
+	var formname = document.frm;
+		
+		formname.method = "post";
+		formname.action = "<%=request.getContextPath()%>/MyOrderList";
+		formname.submit();
+
+	return;	
+}
+</script>
+	
 <body>
 <div class="container">
 <br>
@@ -22,6 +49,8 @@
 <br>
 <br>
 <h1>주문결제완료페이지</h1>
+
+<form name="frm">
 
 <c:choose>
 	<c:when test="${sMemberMidx != null}">
@@ -34,9 +63,9 @@
 
 </c:choose>
 
-<form name="frm">
 
-<input type="text" id="midx" name="midx" value="${sMemberMidx}"/>
+
+<input type="hidden" id="midx" name="midx" value="${sMemberMidx}"/>
 
 <table class="table table-striped table-bordered table-hover" style="text-align: center;">
 		<!-- 속성 이름 -->
@@ -72,9 +101,8 @@
 
 	<br>
 	
-<a href="<%=request.getContextPath() %>/GoToHome?midx=${sMemberMidx}">메인페이지가기</a>
-<br>
-<a href="<%=request.getContextPath() %>/MyOrderList?midx=${sMemberMidx}">나의주문내역확인</a>
+<button type="button"  class="btn btn-primary" id="pay" name="pay" onclick="goMain();">메인페이지가기</button>
+<button type="button"  class="btn btn-primary" id="pay" name="pay" onclick="goMyOrder();">나의주문내역확인</button>
 
 
 

@@ -32,7 +32,7 @@
 
 </c:choose>
 
-<input type="text" id="midx" name="midx" value="${sMemberMidx}"/>
+<input type="hidden" id="midx" name="midx" value="${sMemberMidx}"/>
 
 <form name="frm">
 <table class="table table-striped table-bordered table-hover" style="text-align: center;">
