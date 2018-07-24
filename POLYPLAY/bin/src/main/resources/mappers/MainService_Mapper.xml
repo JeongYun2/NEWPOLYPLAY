@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.polyplay.pp.persistence.MainService_Mapper">
+
+<select id="selectRecentList" resultType ="cvo">
+<![CDATA[select B.* from(
+select rownum as rn, A.* from(
+		select * from POLY_CONTENTS order by cidx desc
+		)A 
+			)B where B.rn <=5
+]]>	 
+</select>
+
+<select id="selectViewCntList" resultType ="cvo">
+<![CDATA[select B.* from(
+		select rownum as rn, A.* from(
+			select * from POLY_CONTENTS order by cViewCnt desc
+		)A
+			)B where B.rn <=5
+]]>	 
+</select>
+
+<select id="selectStarPointList" resultType ="spvo">
+<![CDATA[select B.* from(
+    select rownum as rn, A.* from(
+        select c.cidx, c.cSubject, c.cRuntime, c.cOpenYear, c.cStory,c.cImage,c.cPreVideo,r.rPoint, avg(r.rpoint) as star from POLY_CONTENTS c, poly_review r where c.cidx = r.cidx group by c.cidx,c.cSubject,c.cRuntime,c.cOpenYear,c.cStory,c.cImage,c.cPreVideo,r.rPoint order by star desc
+    )A
+        )B where B.rn <=5
+]]>				
+</select>
+
+<select id="selectSalesList" resultType ="slvo">
+<![CDATA[select B.* from(
+    select rownum as rn, A.* from(
+        select c.cidx,c.cSubject,c.cRuntime,c.cOpenYear,c.cStory,c.cImage,c.cPreVideo,o.oid,p.pStatus, count(*) as cnt from POLY_CONTENTS c, POLY_ORDER o, POLY_PAY p 
+        where c.cidx = o.cidx and o.oid = p.oid and p.pStatus='Y' group by c.cidx,c.cSubject,c.cRuntime,c.cOpenYear,c.cStory,c.cImage,c.cPreVideo,o.oid,p.pStatus order by cnt
+    )A
+        )B where B.rn <=5
+]]>			
+</select>
+
+
+
+</mapper>

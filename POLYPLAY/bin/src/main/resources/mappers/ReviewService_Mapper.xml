@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.polyplay.pp.persistence.ReviewService_Mapper">
+
+<select id="selectMyReview"  parameterType="Integer" resultType ="rvo">
+select * from POLY_REVIEW where midx=#{0} and cidx=#{1} and rDel_yn='N'
+</select>
+
+<select id="selectReviewList" parameterType="Integer" resultType ="rvo">
+<![CDATA[select B.* from(
+        select rownum as rn, A.* from(
+            select m.midx,r.ridx,rpoint,rcontent,rlike,m.mnickname from POLY_REVIEW r,POLY_MEMBER m where m.midx=r.midx and r.rDel_yn='N' and r.cidx=#{cidx} order by rLike desc, ridx desc
+            )A
+    )B where B.rn <=5
+]]>	 
+</select>
+
+<update id="deleteMyReview" parameterType ="rvo">
+update POLY_REVIEW set rDel_yn='Y' where midx=#{midx} and cidx=#{cidx} 
+</update>
+
+
+<update id="updateLikePlus" parameterType ="Integer">
+update POLY_REVIEW set rLike=rLike+1 where ridx=#{ridx} 
+</update>
+
+<update id="updateLikeMinus" parameterType ="Integer">
+update POLY_REVIEW set rLike=rLike-1 where ridx=#{ridx}
+</update>
+
+
+<insert id="insertReview" parameterType ="rvo">
+insert into POLY_REVIEW(ridx, midx, cidx, rpoint, rcontent, rlike, rwriteday, rDel_yn,
+rdeleteday, rip)
+values(#{ridx}, #{midx}, #{cidx}, #{rpoint}, #{rcontent}, #{rlike}, #{rwriteday}, #{rDel_yn},
+NULL, #{rip})
+</insert>
+
+</mapper>

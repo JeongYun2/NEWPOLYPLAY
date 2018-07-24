@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.polyplay.pp.persistence.BoardService_Mapper">
+<select id="selectNoticeList" resultType="bvo">
+ <!--
+ select C.* from(
+	select B.* from(
+		select rownum as rn, A.* from(
+			select bSubject,bWriteday from POLY_BOARD where bDel_yn=’N‘ and bCate=1 order by bidx desc
+		)A
+	)B where B.rn<=#{pageEnd}
+)C where C.rn>=#{pageStart} 
+-->
+select bidx,bWriteday,bSubject from POLY_BOARD where bCate=1 and bDel_yn='N' order by bidx desc
+</select>
+<select id="selectNoticeContent" parameterType="Integer" resultType="com.polyplay.pp.domain.BoardVo">
+select bidx,bSubject,bContent from POLY_BOARD where bDel_yn='N' and bidx=#{bidx}
+</select>
+<select id="selectFAQUserList" resultType="bvo">
+select bidx,bSubject from POLY_BOARD where bCate=2 and bSubcate=1 and bDel_yn='N' order by bidx desc
+</select>
+<select id="selectFAQPlayerList" resultType="bvo">
+select bidx,bSubject from POLY_BOARD where bCate=2 and bSubcate=2 and bDel_yn='N' order by bidx desc
+</select>
+<select id="selectFAQPayList" resultType="bvo">
+select bidx,bSubject from POLY_BOARD where bCate=2 and bSubcate=3 and bDel_yn='N' order by bidx desc
+</select>
+<select id="selectFAQEtcList" resultType="bvo">
+select bidx,bSubject from POLY_BOARD where bCate=2 and bSubcate=4 and bDel_yn='N' order by bidx desc
+</select>
+<select id="selectFAQContent" parameterType="Integer" resultType="com.polyplay.pp.domain.BoardVo">
+select bidx,bSubcate,bSubject,bContent from POLY_BOARD where bDel_yn='N' and bidx=#{bidx}
+</select>
+<select id="selectInquiryList" resultType="bvo">
+ <!--
+ select C.* from(
+    select B.* from(
+        select rownum as rn, A.* from(
+            select bSubCate,  bSubject, bWriteday, bWriter from POLY_BOARD  where bDel_yn='N' and bCate='3' order by bOridx desc, bDepth, bidx
+            )A
+    )B where B.rn <=#{pageEnd}
+)C where C.rn >=#{pageStart}; 
+-->
+select bidx,bSubCate,bWriter,bSubject,bWriteday from POLY_BOARD where bDel_yn='N' and bCate=3 order by bOridx desc, bDepth, bidx
+</select>
+<select id="selectInquiryContent" parameterType="Integer" resultType="com.polyplay.pp.domain.BoardVo">
+select bidx,bSubcate,bWriter,bSubject,bContent from POLY_BOARD where bDel_yn='N' and bidx=#{bidx}
+</select>
+<insert id="insertInquiry" parameterType="HashMap">
+insert into POLY_BOARD(bidx,midx,bCate,bSubcate,bWriter,bSubject,bContent,bWriteday,bModifyday,bIp,bDel_yn,bSecret_yn,bOridx,bPassword) values(SEQ_BIDX.nextval,2,3,#{bSubcate},#{bWriter},#{bSubject},#{bContent},sysdate,null,#{bIp},default,#{bSecret_yn},SEQ_BIDX.nextval,#{bPassword})
+</insert>
+ <!--  나중에 midx값 바꿔야함  -->
+<update id="deleteInquiry" parameterType="HashMap">
+update POLY_BOARD set bDel_yn='Y', bModifyday=sysdate, bIp=#{bIp} where bidx=#{bidx}
+</update>
+<update id="updateInquiry" parameterType="HashMap">
+update POLY_BOARD set bSubcate=#{bSubcate},bSubject=#{bSubject}, bContent=#{bContent}, bIp=#{bIp}, bModifyday=sysdate where bidx=#{bidx}
+</update>
+<select id="bPasswordCheck" parameterType="HashMap" resultType="Integer">
+select count(*) from POLY_BOARD where bidx=#{bidx} and bPassword=#{bPassword}
+</select>
+</mapper>

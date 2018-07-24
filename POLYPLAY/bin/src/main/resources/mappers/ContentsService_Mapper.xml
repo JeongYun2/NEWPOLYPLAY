@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.polyplay.pp.persistence.ContentsService_Mapper">
+
+<sql id="search">
+	<if test="searchType != null">
+		and ${searchType} like '%'||#{keyword}||'%'
+	</if>
+</sql>
+
+
+<select id="selectGenreList" parameterType="Integer" resultType ="cvo">
+select * from POLY_CONTENTS where gidx=#{gidx} and cDel_yn='N'
+</select>
+
+<select id="selectSearchList " parameterType ="scri"  resultType = "cvo">
+select * from POLY_CONTENTS where cDel_yn='N' 
+	<include refid="search"></include>
+</select>
+
+<select id="selectContentsInfo" parameterType="Integer" resultType ="cvo">
+select * from POLY_CONTENTS where cidx=#{cidx} and cDel_yn='N'
+</select>
+
+<select id="selectlSimilarList" parameterType="Integer" resultType ="cvo">
+select * from POLY_CONTENTS where gidx=#{gidx} and cDel_yn='N'
+</select>
+
+<update id="updateViewCnt" parameterType="cvo">
+update poly_contents set cViewCnt = cViewCnt + 1 where cidx=#{cidx}
+</update>
+
+<select id="selectPreVideo" parameterType="Integer" resultType ="cvo">
+select cPreVideo from POLY_CONTENTS where cidx=#{cidx}
+</select>
+
+
+
+
+</mapper>

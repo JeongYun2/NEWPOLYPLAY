@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.polyplay.pp.persistence.OrderService_Mapper">
+
+<!-- select * from POLY_BASKET where midx=#{midx} and cidx in(${inCidx}0) 
+select * from POLY_BASKET where midx=#{0} and cidx=#{1}-->
+<!-- <select id="selectBasket" parameterType="Integer" resultType="blvo">
+select c.cidx, c.cImage, c.cSubject, c.cPrice from POLY_BASKET ba, POLY_CONTENTS c where c.cidx=ba.cidx and ba.midx=#{0} and ba.cidx=#{1}
+</select> -->
+
+
+
+<insert id="insertJustOrder" parameterType="opvo">	
+insert into POLY_ORDER values(seq_oidx.nextval, #{midx}, #{cidx}, #{oid}, default, #{oPrice}, #{oIp})
+</insert>
+
+
+
+<!-- insert into POLY_ORDER(oidx, midx, cidx, oid, oPrice, oWriteday, oIp) 
+	select  seq_oidx.nextval, midx, cidx,(select DBMS_RANDOM.STRING('X',10) from dual)as oid, baPrice, baWriteday, '${oIp}' from POLY_BASKET where midx=#{midx} and cidx in(${h})  --> 	
+<insert id="insertOrder" parameterType="opvo">	
+insert into POLY_ORDER(oidx, midx, cidx, oid, oPrice, oIp) 
+	select  seq_oidx.nextval, midx, cidx,'${oid}', baPrice, '${oIp}' from POLY_BASKET where midx=#{midx} and cidx in(${h})  	
+</insert>
+
+
+<select id="selectOrder" parameterType="String" resultType="opvo">
+select * from POLY_ORDER o, POLY_CONTENTS c where c.cidx=o.cidx and oid=#{oid}
+</select>
+
+
+
+<!-- insert into POLY_PAY(pidx, oid, pMethod, pPrice, pStatus, pDepositor, pWriteday) 
+	select  seq_pidx.nextval, oid, 'B', '19000', 'N', '이정윤',null from POLY_ORDER where oid='4F08TNAX10' 
+	
+	insert into POLY_PAY(pidx, oid, pMethod, pPrice, pStatus, pDepositor, pWriteday) 
+	select  seq_pidx.nextval, oid, '${pMethod}', '${pPrice}', 'N', '${pDepositor}',null from POLY_ORDER where oid=#{oid}-->
+<insert id="insertPay" parameterType="opvo">	
+insert into POLY_PAY values(seq_pidx.nextval, #{oid}, #{pMethod}, #{pPrice}, default, #{pDepositor}, null)		
+</insert>
+
+
+
+<!-- select DISTINCT o.oid, c.cImage, c.cSubject, o.oPrice, o.oWriteday, p.pMethod, p.pDepositor, p.pPrice  from POLY_ORDER o, POLY_PAY p, POLY_CONTENTS c where o.oId = p.oid and c.cidx = o.cidx and o.midx=#{midx} and o.oid=#{oid}; -->
+<!--  -->
+<select id="selectCheckOrder" parameterType="opvo" resultType="opvo">
+
+select o.*,p.*,c.* from POLY_ORDER o, POLY_PAY p, POLY_CONTENTS c where o.oId = p.oid and c.cidx = o.cidx  and o.midx=#{midx} and o.oid=#{oid}
+
+</select>
+
+
+
+
+</mapper>

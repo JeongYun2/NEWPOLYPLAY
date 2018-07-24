@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.polyplay.pp.persistence.MemberService_Mapper">
+
+
+<!-- memberLogin.jsp -->
+
+<!-- selectLogin : 로그인 -->
+<select id="selectLogin" parameterType="mvo" resultType="mvo"><!-- 리턴을 Integer로 할때 데이터가 없으면 null값 반환함  -->
+select *
+	from POLY_MEMBER 
+	where mId=#{mId} and mPassword=#{mPassword} and mDel_yn ='N'
+</select>
+
+<!-- selectAutoLogin : 자동로그인 세션 체크 -->
+<select id="selectAutoLogin" parameterType="String" resultType="mvo">
+select * 
+	from POLY_MEMBER
+	where mSessionId=#{mSessionId} and mSessionLimit >= sysdate and mDel_yn ='N'
+</select>
+
+<!-- updateAutoLogin : 자동로그인 세션 정보 수정 --> 
+<update id="updateAutoLogin" parameterType="mvo">
+update POLY_MEMBER
+	set mSessionId=#{mSessionId}, mSessionLimit=#{mSessionLimit}
+	where midx=#{midx}
+</update>
+
+
+<!-- memberjoin.jsp -->
+
+<!-- selectIdCheck : 아이디 중복 체크 --> 
+<select id="selectIdCheck" parameterType="String" resultType="Integer">
+select count(*) from POLY_MEMBER where mId=#{mId}
+</select> 
+
+<!-- selectNicknameCheck : 닉네임 중복 체크 --> 
+<select id="selectNicknameCheck" parameterType="String" resultType="Integer">
+select count(*) from POLY_MEMBER where mNickname=#{mNickname}
+</select>
+
+<!-- selectEmailCheck : 이메일 중복 체크 --> 
+<select id="selectEmailCheck" parameterType="String" resultType="Integer">
+select count(*) from POLY_MEMBER where mEmail=#{mEmail}
+</select>
+
+<!-- insertMember : 회원 가입 -->
+<insert id="insertMember" parameterType="mvo">
+insert into 
+	poly_member (mName, mNickname, mId, mPassword, mEmail, mPhone, mIp, midx)
+	values (#{mName}, #{mNickname}, #{mId}, #{mPassword}, #{mEmail}, #{mPhone}, #{mIp}, midx_seq.nextval)
+</insert>
+
+
+<!-- memberIdFind.jsp -->
+
+<!-- selectIdFind : 아이디 찾기 -->
+<select id="selectIdFind" parameterType="mvo" resultType="String">
+select mId from poly_member
+where mName=#{mName} and mEmail=#{mEmail} and mDel_yn='N'
+</select>
+
+
+<!-- memberPwFind.jsp -->
+
+<!-- selectPwFind : 비밀번호 찾기 -->
+<select id="selectPwFind" parameterType="mvo" resultType="String">
+select mPassword from poly_member
+where mId=#{mId} and mEmail=#{mEmail} and mPhone=#{mPhone} and mDel_yn='N'
+</select>
+
+
+<!-- memberModify.jsp -->
+
+<!-- selectMyMember : 회원정보 수정/탈퇴에 필요한 회원정보 가져와서 출력 -->
+<select id="selectMyMember" parameterType="Integer" resultType="mvo">
+select mId, mName, mNickname, mEmail, mPhone from poly_member 
+	where midx=#{midx}
+</select>
+
+<!-- selectNicknameCheck : 닉네임 중복 체크 여기에 씀 -->
+
+<!-- selectPwConfirm : 비밀번호 확인 -->
+<select id="selectPwConfirm" parameterType="mvo" resultType="Integer">
+select count(*)
+	from POLY_MEMBER 
+	where midx=#{midx} and mPassword=#{mPassword}
+</select>
+
+<!-- updateMemberCheck : 회원 정보 수정 -->
+<update id="updateMember" parameterType="mvo">
+update POLY_MEMBER 
+	set mNickname=#{mNickname},mPassword=#{mNewPassword},mPhone=#{mPhone},mModifyday=sysdate
+	where midx=#{midx}
+</update>
+
+<!-- deleteMember : 회원 탈퇴 -->
+<update id="deleteMember" parameterType="Integer">
+update poly_member 
+	set mDel_yn='Y' 
+	where midx=#{midx}
+</update>
+
+
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.polyplay.pp.persistence.MyPageService_Mapper">
+
+<select id="selectBasketList" parameterType="Integer" resultType="blvo">
+select c.cidx, c.cImage, c.cSubject, c.cPrice from POLY_BASKET ba, POLY_CONTENTS c where c.cidx=ba.cidx and ba.midx=#{midx}
+</select>
+
+
+
+<delete id="deleteBasket" parameterType="Integer">
+delete from POLY_BASKET where midx=#{0} and cidx=#{1}
+</delete>
+<select id="selectWishListCheck" parameterType="Integer" resultType="Integer">
+select count(*) from POLY_WISHLIST where midx=#{0} and cidx=#{1}
+</select>
+<insert id="insertWishList" parameterType="Integer">
+insert into POLY_WISHLIST values(seq_widx.nextval, #{0}, #{1}, sysdate)
+</insert>
+
+
+
+<insert id="insertBasket" parameterType="blvo">
+insert into POLY_BASKET values(seq_baidx.nextval, #{cidx}, #{midx}, #{cPrice}, default)
+</insert>
+
+
+
+<select id="selectMyWishList" parameterType="Integer" resultType="wvo">
+select  c.cidx, c.cImage from POLY_WISHLIST w, POLY_CONTENTS c where c.cidx = w.cidx and w.midx=#{midx}
+</select>
+
+
+
+<delete id="deleteWishList">
+delete from POLY_WISHLIST where midx=#{midx} and cidx=#{cidx}
+</delete>
+
+
+
+
+<select id="selectMyContents" parameterType="Integer" resultType="opvo">
+select o.cidx, c.cImage from POLY_ORDER o, POLY_PAY p, POLY_CONTENTS c where o.oId = p.oid and c.cidx = o.cidx and p.pStatus='Y' and o.midx=#{midx}
+</select>
+
+
+
+
+
+
+
+
+<select id="selectMyOrder" parameterType="Integer" resultType="opvo">
+select o.oid, p.pMethod, p.pPrice, p.pStatus, o.oWriteday 
+	from POLY_ORDER o, POLY_PAY p where o.oId = p.oid and o.midx=#{midx} order by o.oWriteday desc
+	
+<!-- select o.*,p.*,c.* from POLY_ORDER o, POLY_PAY p, POLY_CONTENTS c where o.oId = p.oid and c.cidx = o.cidx  and o.midx=#{midx}	 -->
+</select>
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

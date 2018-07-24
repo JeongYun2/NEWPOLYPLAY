@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+     
+
+     
+ <configuration>    
+ 
+ <typeAliases>
+ 	<typeAlias alias="arvo" type = "com.polyplay.pp.domain.AdReviewListVo"/>
+ 	<typeAlias alias="blvo" type = "com.polyplay.pp.domain.BasketListVo"/>
+ 	<typeAlias alias="bvo" type = "com.polyplay.pp.domain.BoardVo"/>
+ 	<typeAlias alias="cvo" type = "com.polyplay.pp.domain.ContentsVo"/>
+ 	<typeAlias alias="cri" type = "com.polyplay.pp.domain.Criteria"/>
+ 	<typeAlias alias="scri" type = "com.polyplay.pp.domain.SearchCriteria"/>
+ 	<typeAlias alias="gvo" type = "com.polyplay.pp.domain.GenreVo"/>
+ 	<typeAlias alias="mvo" type = "com.polyplay.pp.domain.MemberVo"/>
+ 	<typeAlias alias="opvo" type = "com.polyplay.pp.domain.OrderPayVo"/>
+ 	<typeAlias alias="rvo" type = "com.polyplay.pp.domain.ReviewVo"/>
+ 	<typeAlias alias="slvo" type = "com.polyplay.pp.domain.SalesListVo"/>
+ 	<typeAlias alias="spvo" type = "com.polyplay.pp.domain.StarPointListVo"/>
+ 	<typeAlias alias="wvo" type = "com.polyplay.pp.domain.WishListVo"/>
+ 	
+ </typeAliases>  
+
+ </configuration>

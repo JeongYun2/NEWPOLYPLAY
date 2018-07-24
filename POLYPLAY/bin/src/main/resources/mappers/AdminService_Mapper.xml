@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.polyplay.pp.persistence.AdminService_Mapper">
+<select id="selectAdContents" parameterType ="scri" resultType ="cvo">
+select * from POLY_CONTENTS where
+ 	<if test="searchType != null">
+		and ${searchType} like '%'||#{keyword}||'%'
+	</if>
+</select>
+
+<select id="selectAdContentsOne"  parameterType ="Integer"  resultType ="cvo">
+select * from POLY_CONTENTS where cDel_yn= 'N' and cidx=#{cidx} 
+</select>
+
+<insert id="insertContents" parameterType="cvo">
+insert into POLY_CONTENTS(cidx, gidx, cSubject, cPrice, cDirector, cActor, cRuntime, cOpenyear, cStory, cWriteday, cModifyday, cDel_yn, cPreVideo, cVideo, cImage, cViewcnt)
+values(seq_cidx.nextval, #{gidx}, #{cSubject}, #{cPrice}, #{cDirector}, #{cActor}, #{cRuntime}, #{cOpenYear}, #{cStory}, sysdate, null, default, #{cPreVideo}, #{cVideo}, #{cImage}, NULL)
+</insert>
+
+<update id="updateContents" parameterType="cvo">
+update POLY_CONTENTS set gidx=#{gidx}, cSubject=#{cSubject}, cPrice=#{cPrice},
+cDirector=#{cDirector}, cActor=#{cActor}, cRuntime=#{cRuntime}, cOpenYear=#{cOpenYear},
+cStory=#{cStory}, cModifyday=sysdate, cPreVideo=#{cPreVideo}, cVideo=#{cVideo}, cImage=#{cImage} where cidx=#{cidx}
+</update>
+
+<delete id="deleteContents" parameterType="cvo">
+update POLY_CONTENTS set cDel_yn='Y' where cidx=#{cidx}
+</delete>
+
+</mapper>
