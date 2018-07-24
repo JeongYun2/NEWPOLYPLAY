@@ -37,14 +37,16 @@ public class MyPageController {
 	//@ModelAttribute("cv") ContentsVo cv //@RequestParam("midx")int midx,
 	@RequestMapping(value="/AddToWishList")
 	public String addToWishListController(@RequestParam("cidx")int cidx,
-			@RequestParam("cSubject")String cSubject, @RequestParam("cPrice")int cPrice) { 
+			@RequestParam("cSubject")String cSubject, @RequestParam("cPrice")int cPrice, HttpSession session) { 
 		
 		System.out.println("addToWishListController들어옴");
 		System.out.println("cidx: "+cidx);
 		System.out.println("cSubject: "+cSubject);
 		System.out.println("cPrice: "+cPrice);
 		
-		mps.insertWishList(1, cidx);
+		int midx = (Integer)session.getAttribute("sMemberMidx");
+		
+		mps.insertWishList(midx, cidx);
 		
 
 		//addToWishList
@@ -55,10 +57,12 @@ public class MyPageController {
 	
 	@RequestMapping(value="/AddToBasket")
 	public String addToBasketController(@RequestParam("cidx")int cidx,
-			@RequestParam("cSubject")String cSubject, @RequestParam("cPrice")int cPrice) {
+			@RequestParam("cSubject")String cSubject, @RequestParam("cPrice")int cPrice, HttpSession session) {
 		
 		//addToBasket
 		System.out.println("addToBasketController들어옴");
+		
+		int midx = (Integer)session.getAttribute("sMemberMidx");
 		
 		BasketListVo blv = new BasketListVo();
 		
@@ -68,7 +72,7 @@ public class MyPageController {
 		
 		blv.setcPrice(cPrice);
 		blv.setcSubject(cSubject);
-		blv.setMidx(1);
+		blv.setMidx(midx);
 		
 		mps.insertBasket(blv);
 		
