@@ -9,14 +9,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>memberJoin</title>
 
-    <!-- 합쳐지고 최소화된 최신 CSS -->
+	<!-- Bootstrapk CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <!-- Bootstrapk JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
+
 <style type="text/css">
 	.red {
 		color: red;
@@ -61,7 +62,7 @@ $.idCheck = function(){
 	            }
 			},
 			error : function() {
-				$("#idText").html("오류가 일어났습니다.");
+				$("#idText").html("아이디를 입력해주세요.");
 			}
 		});
 	});
@@ -95,7 +96,7 @@ $.nickCheck = function(){
 		            }
 				},
 				error : function() {
-					$("#nickText").html("오류가 일어났습니다.");
+					$("#nickText").html("닉네임을 입력해주세요.");
 				}
 			});
 		

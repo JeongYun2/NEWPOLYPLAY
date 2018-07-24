@@ -8,14 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 수정</title>
 
-<!-- 합쳐지고 최소화된 최신 CSS -->
+	<!-- Bootstrapk CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <!-- Bootstrapk JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
+
 <style type="text/css">
 	.red {
 		color: red;
@@ -203,35 +204,5 @@ $.clearAll = function(){
           </form>
         </div>
       </article>
-
-<%-- 
-	<form id="modiForm">
-	<table border="1">
-		<tr>
-			<td>아이디</td>
-			<td>기존 비밀번호</td>
-			<td>새 비밀번호</td>
-			<td>새 비밀번호 확인</td>
-			<td>이름</td>
-			<td>닉네임</td>
-			<td>이메일</td>
-			<td>전화번호</td>	
-		</tr>
-		<tr>
-			<td><input type="text" id="mId" name="mId" value="${mvo.getmId() }" readonly></td>
-			<td><input type="text" id="mPassword" name="mPassword"></td>
-			<td><input type="text" id="mNewPassword" name="mNewPassword"></td>
-			<td><input type="text" id="mNewPasswordConfirm" name="mNewPasswordConfirm"></td>
-			<td><input type="text" id="mName" name="mName" value="${mvo.getmName() }" readonly></td>
-			<td>
-				<input type="text" id="mNickname" name="mNickname" value="${mvo.getmNickname() }">
-				<input type="button" id="nickCheck" value="닉네임 중복 체크">
-			</td>
-			<td><input type="text" id="mEmail" name="mEmail" value="${mvo.getmEmail() }"></td>
-			<td><input type="text" id="mPhone" name="mPhone" value="${mvo.getmPhone() }"></td>	
-		</tr>
-	</table>
-	<input type="submit" value="수정">
-	</form> --%>
 </body>
 </html>

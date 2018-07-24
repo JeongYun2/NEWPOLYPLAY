@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -180,7 +181,7 @@ public class MemberController {
 		String page = null;
 		
 		if(res == 1){
-			page = "redirect:/MainList";
+			page = "redirect:/MemberLogin";
 		} else {
 			page = "redirect:/MemberJoin";
 		}
@@ -196,12 +197,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/MemberIdFindAction", method=RequestMethod.POST)
-	public @ResponseBody String memberIdFindActionController(MemberVo mvo,HttpServletRequest request) {
+	public @ResponseBody HashMap<String, String> memberIdFindActionController(@RequestBody MemberVo mvo) {
 		
 		logger.info("이름: "+mvo.getmName()+", 이메일: "+mvo.getmEmail());
 		String mId = ms.selectIdFind(mvo);
 		
-		return mId;
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("mId", mId);
+		
+		return map;
 	}
 	
 	
@@ -212,12 +216,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/MemberPwFindAction", method=RequestMethod.POST)
-	public @ResponseBody String memberPwFindActionController(MemberVo mvo, HttpSession session) {
+	public @ResponseBody HashMap<String, String> memberPwFindActionController(@RequestBody MemberVo mvo) {
 		
 		logger.info("아이디: "+mvo.getmId()+", 이메일: "+mvo.getmEmail()+", 전화번호"+mvo.getmPhone());
-		String Pw = ms.selectPwFind(mvo);
+		String mPw = ms.selectPwFind(mvo);
 		
-		return Pw;
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("mPw", mPw);
+		
+		return map;
 	}
 	
 	@RequestMapping(value="/MemberModify")

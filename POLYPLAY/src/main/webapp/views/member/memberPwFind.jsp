@@ -8,12 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>비밀번호 찾기</title>
 
-<!-- 합쳐지고 최소화된 최신 CSS -->
+	<!-- Bootstrapk CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <!-- Bootstrapk JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <script type="text/javascript">
@@ -65,7 +66,7 @@ $.pwFine = function(){
 				} else {
 					
 					sId = "<p class='help-block'>회원님의 비밀번호는"+data.mPw+"입니다.</p>"
-					+"<p class='help-block'><a href='${pageContext.request.contextPath}/MainList'>로그인하기</a></p>";
+					+"<p class='help-block'><a href='${pageContext.request.contextPath}/MemberLogin'>로그인하기</a></p>";
 				}
 				
 				$("#pwFined").html(sId);
@@ -120,26 +121,5 @@ $.pwFine = function(){
           
         </div>
       </article>
-
-
-
-	<!-- <h1>비밀번호</h1>
-	<form>
-	<div>
-		<div class="form-group" >
-			<label class="control-label">아이디</label>			
-			<input type="text" class="form-control" id="mId" name="mId">	
-		</div>
-		<div class="form-group" >
-			<label class="control-label">이메일</label>
-			<input type="text" class="form-control" id="mEmail" name="mEmail">
-		</div>
-		<div class="form-group" >
-			<label class="control-label">전화번호</label>
-			<input type="text" class="form-control" id="mPhone" name="mPhone">
-		</div>
-		<input type="btu" value="비밀번호 찾기">
-	</div>
-	</form> -->
 </body>
 </html>

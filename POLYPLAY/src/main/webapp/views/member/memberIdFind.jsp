@@ -7,12 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>아이디찾기</title>
-	<!-- 합쳐지고 최소화된 최신 CSS -->
+
+	<!-- Bootstrapk CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <!-- Bootstrapk JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <script type="text/javascript">
@@ -57,13 +59,10 @@ $.idFine = function(){
 				if(data.mId == null){
 
 					sId = "<p class='help-block'>존재 하지 않는 회원님입니다.</p>";
-					
-					/* $("#idFined").html("<p class='help-block'>회원님의 ID는"+data.mId+"입니다.</p>"
-							+"<p class='help-block'><a href='${pageContext.request.contextPath}/MainList'>로그인하기</a></p>"); */
 				} else {
 					
 					sId = "<p class='help-block'>회원님의 ID는"+data.mId+"입니다.</p>"
-					+"<p class='help-block'><a href='${pageContext.request.contextPath}/MainList'>로그인하기</a></p>";
+					+"<p class='help-block'><a href='${pageContext.request.contextPath}/MemberLogin'>로그인하기</a></p>";
 				}
 				
 				$("#idFined").html(sId);
@@ -113,26 +112,6 @@ $.idFine = function(){
           
         </div>
       </article>
-
-
-	<!-- <h1>아이디 찾기</h1>
-	<form>
-	<div>
-		<div class="form-group" >
-			<label class="control-label">이름</label>			
-			<input type="text" class="form-control infoData" id="mName" name="mName">	
-		</div>
-		<div class="form-group" >
-			<label class="control-label">이메일</label>
-			<input type="text" class="form-control infoData" id="mEmail" name="mEmail">
-		</div>
-		<input type="button" id="idFine" value="아이디 찾기">
-	</div>
-	</form>
-	<div id="idFined">
-		<p></p>
-		<p><a href="">로그인하기</a></p>
-	</div> -->
 </body>
 </html>
 
