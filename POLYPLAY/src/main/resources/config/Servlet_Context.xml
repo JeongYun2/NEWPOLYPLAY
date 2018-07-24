@@ -29,7 +29,7 @@
 	
 	
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="D:/dev/GIT/POLYPLAY/POLYPLAY/src/main/webapp/resources/contents"/>
+		<beans:constructor-arg value="D:/dev/GIT/NEWPOLYPLAY/POLYPLAY/src/main/webapp/resources/contents"/>
 	</beans:bean>
 	<!-- <beans:constructor-arg value="D:/dev/uploadFiles"/> -->
 	

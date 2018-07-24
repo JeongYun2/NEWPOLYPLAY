@@ -51,11 +51,21 @@
 <Form name="frm">
 <table>
 <tr>
-<td> 별점(1~5점 사이의 숫자를 적어주세요)<input type="text" id="rPoint" name="rPoint" /> </td>
-<td>
-<input type="text" id="rContent" name="rContent" />
+<td> 
+	<select name="rPoint">
+	 <option value="0">별점을 선택하세요.</option>
+	 <option value="1">★☆☆☆☆</option>
+	 <option value="2">★★☆☆☆</option>
+	 <option value="3">★★★☆☆</option>
+	 <option value="4">★★★★☆</option>
+	 <option value="5">★★★★★</option>
+	</select>
 </td>
-</tr>
+<tr>
+<td>
+<textarea name="rContent" id="rContent" class="comment_text" style="width:600px; height: 300px; font-size: 14px; line-height: 18px; border: 5px solid #dddddd; padding: 10px;" placeholder="내용을 입력하세요."></textarea>
+</td>
+</tr>               
 <tr>	
 <td>
 <input type="button"name="button" value="등록하기" onclick="javascript:check();" />
