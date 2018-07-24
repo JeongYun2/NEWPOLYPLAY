@@ -24,7 +24,7 @@
 <video controls autoplay>
 <source src="resources/contents${cv.cPreVideo}" width="320" height="240" controls="controls">
 </video>
-<c:out value="${cv.cPreVideo}"></c:out>
+
 
 </div>
 <br>
