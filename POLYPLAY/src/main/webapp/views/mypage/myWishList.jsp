@@ -47,7 +47,7 @@
 		<!-- 속성 값 -->
 		<tr>
 			<td>${wlvo.cidx}</td>
-			<td>${wlvo.cImage}</td>
+			<td><img src="displayFile?fileName=${wlvo.cImage}" class="img-fluid" /></td>
 			
 		</tr>
 		</c:forEach>

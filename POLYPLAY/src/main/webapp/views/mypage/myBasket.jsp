@@ -86,7 +86,7 @@ function orderCheck() {
 		<!-- 속성 값 -->
 		<tr>
 			<td><input type="checkbox" id="cidx${status.count}" name="cidx" value="${blvo.cidx}"></td>
-			<td>${blvo.cImage}||${blvo.cidx}</td>
+			<td><img src="displayFile?fileName=${blvo.cImage}" class="img-fluid" /></td>
 			<td>${blvo.cSubject}</td>
 			<td>${blvo.cPrice}</td>
 		<%-- 	<input type="hidden" id="baPrice${status.count}" name="baPrice" value="${blvo.cPrice}"/> --%>

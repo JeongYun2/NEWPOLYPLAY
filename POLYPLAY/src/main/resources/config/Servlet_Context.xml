@@ -51,6 +51,8 @@
 			<mapping path="/MemberModify" />
 			<mapping path="/JustOrderPay" />
 			<mapping path="/ReviewWrite" />
+			<mapping path="/AddToWishList" />
+			<mapping path="/AddToBasket" />
 			<beans:ref bean="authInterceptor" />
 		</interceptor>
 	</interceptors>

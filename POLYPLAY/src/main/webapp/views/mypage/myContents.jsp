@@ -50,7 +50,7 @@
 		<!-- 속성 값 -->
 		<tr>
 			<td><a href="<%=request.getContextPath()%>/ContentsPlay?cidx=${opvo.cidx}">${opvo.cidx}</a></td>
-			<td>${opvo.cImage}</td>
+			<td><img src="displayFile?fileName=${opvo.cImage}" class="img-fluid" /></td>
 	
 		</tr>
 		</c:forEach>

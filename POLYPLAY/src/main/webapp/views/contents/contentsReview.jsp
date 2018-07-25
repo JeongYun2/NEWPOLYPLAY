@@ -62,7 +62,7 @@ function reviewList(){
 
 				$('#tbl').html("<table border='1' width='100%' style='text-align:center;'>"
 							 + "<tr style='text-align:center;background-color:skyblue;'>"
-				 			 + "<td>ridx</td>"
+				 			 + "<td>글번호</td>"
 				 			 + "<td width='50%'>100자평</td>" 
 				 			 + "<td>추천수</td>"
 				 			 + "<td>추천하기</td>"

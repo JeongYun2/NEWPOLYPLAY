@@ -8,6 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
@@ -67,10 +68,10 @@ function payCheck() {
 <input type="hidden" id="midx" name="midx" value="${sMemberMidx}"/>
 
 <!-- <form name="frm"> -->
-<table class="table table-striped table-bordered table-hover" style="text-align: center;">
+<table class="table table-striped table-bordered table-hover" >
 		<!-- 속성 이름 -->
 		<tr>
-			<th></th>
+			
 			<th>썸네일</th>
 			<th>제목</th>
 			<th>금액</th>
@@ -81,8 +82,8 @@ function payCheck() {
 		<c:forEach var="opvo" items="${orderList}" varStatus ="status">
 		<!-- 속성 값 -->
 		<tr>
-			<td>${opvo.cidx} ${status.count}</td>
-			<td>${opvo.cImage}</td>
+			
+			<td><img src="displayFile?fileName=${opvo.cImage}" class="img-fluid" /></td>
 			<td>${opvo.cSubject}</td>
 			<td>${opvo.oPrice}</td>
 		<%-- 	<input type="hidden" id="baPrice${status.count}" name="baPrice" value="${blvo.cPrice}"/> --%>
