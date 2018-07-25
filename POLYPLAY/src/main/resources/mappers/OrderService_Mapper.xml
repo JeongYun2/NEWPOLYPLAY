@@ -12,7 +12,7 @@ select c.cidx, c.cImage, c.cSubject, c.cPrice from POLY_BASKET ba, POLY_CONTENTS
 
 
 <insert id="insertJustOrder" parameterType="opvo">	
-insert into POLY_ORDER values(seq_oidx.nextval, #{midx}, #{cidx}, #{oid}, default, #{oPrice}, #{oIp})
+insert into POLY_ORDER values(default, #{midx}, #{cidx}, #{oid}, now(), #{oPrice}, #{oIp})
 </insert>
 
 
@@ -21,7 +21,7 @@ insert into POLY_ORDER values(seq_oidx.nextval, #{midx}, #{cidx}, #{oid}, defaul
 	select  seq_oidx.nextval, midx, cidx,(select DBMS_RANDOM.STRING('X',10) from dual)as oid, baPrice, baWriteday, '${oIp}' from POLY_BASKET where midx=#{midx} and cidx in(${h})  --> 	
 <insert id="insertOrder" parameterType="opvo">	
 insert into POLY_ORDER(oidx, midx, cidx, oid, oPrice, oIp) 
-	select  seq_oidx.nextval, midx, cidx,'${oid}', baPrice, '${oIp}' from POLY_BASKET where midx=#{midx} and cidx in(${h})  	
+	select  default, midx, cidx,'${oid}', baPrice, '${oIp}' from POLY_BASKET where midx=#{midx} and cidx in(${h})  	
 </insert>
 
 
@@ -37,7 +37,7 @@ select * from POLY_ORDER o, POLY_CONTENTS c where c.cidx=o.cidx and oid=#{oid}
 	insert into POLY_PAY(pidx, oid, pMethod, pPrice, pStatus, pDepositor, pWriteday) 
 	select  seq_pidx.nextval, oid, '${pMethod}', '${pPrice}', 'N', '${pDepositor}',null from POLY_ORDER where oid=#{oid}-->
 <insert id="insertPay" parameterType="opvo">	
-insert into POLY_PAY values(seq_pidx.nextval, #{oid}, #{pMethod}, #{pPrice}, default, #{pDepositor}, null)		
+insert into POLY_PAY values(default, #{oid}, #{pMethod}, #{pPrice}, default, #{pDepositor}, null)		
 </insert>
 
 

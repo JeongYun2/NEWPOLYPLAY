@@ -3,6 +3,10 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.polyplay.pp.persistence.MainService_Mapper">
 
+
+
+
+
 <select id="selectRecentList" resultType ="cvo">
 <![CDATA[select B.* from(
 select rownum as rn, A.* from(
@@ -11,6 +15,7 @@ select rownum as rn, A.* from(
 			)B where B.rn <=5
 ]]>	 
 </select>
+
 
 <select id="selectViewCntList" resultType ="cvo">
 <![CDATA[select B.* from(
@@ -21,6 +26,7 @@ select rownum as rn, A.* from(
 ]]>	 
 </select>
 
+
 <select id="selectStarPointList" resultType ="spvo">
 <![CDATA[select B.* from(
     select rownum as rn, A.* from(
@@ -29,6 +35,7 @@ select rownum as rn, A.* from(
         )B where B.rn <=5
 ]]>				
 </select>
+
 
 <select id="selectSalesList" resultType ="slvo">
 <![CDATA[select B.* from(

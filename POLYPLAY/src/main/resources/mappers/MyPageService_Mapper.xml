@@ -16,13 +16,13 @@ delete from POLY_BASKET where midx=#{0} and cidx=#{1}
 select count(*) from POLY_WISHLIST where midx=#{0} and cidx=#{1}
 </select>
 <insert id="insertWishList" parameterType="Integer">
-insert into POLY_WISHLIST values(seq_widx.nextval, #{0}, #{1}, sysdate)
+insert into POLY_WISHLIST values(default, #{0}, #{1}, now())
 </insert>
 
 
 
 <insert id="insertBasket" parameterType="blvo">
-insert into POLY_BASKET values(seq_baidx.nextval, #{cidx}, #{midx}, #{cPrice}, default)
+insert into POLY_BASKET values(default, #{cidx}, #{midx}, #{cPrice}, now())
 </insert>
 
 
