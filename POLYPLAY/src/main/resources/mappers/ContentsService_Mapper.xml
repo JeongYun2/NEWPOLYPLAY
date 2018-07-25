@@ -36,12 +36,12 @@ select * from POLY_CONTENTS where gidx=#{gidx} and cDel_yn='N'
 
 
 <update id="updateViewCnt" parameterType="cvo">
-update poly_contents set cViewCnt = cViewCnt + 1 where cidx=#{cidx}
+update POLY_CONTENTS set cViewCnt = cViewCnt + 1 where cidx=#{cidx}
 </update>
 
 
 <select id="selectPreVideo" parameterType="Integer" resultType ="cvo">
-select cPreVideo from POLY_CONTENTS where cidx=#{cidx}
+select * from POLY_CONTENTS where cidx=#{cidx}
 </select>
 
 

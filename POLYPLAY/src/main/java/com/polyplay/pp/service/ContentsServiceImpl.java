@@ -12,7 +12,7 @@ import com.polyplay.pp.domain.SearchCriteria;
 import com.polyplay.pp.persistence.ContentsService_Mapper;
 
 
-@Service("ContentsServiceImpl")
+@Service("contentsServiceImpl")
 public class ContentsServiceImpl  implements ContentsService{
 
 	@Autowired

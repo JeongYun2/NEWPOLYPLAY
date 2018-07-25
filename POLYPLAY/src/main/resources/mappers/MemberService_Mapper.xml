@@ -10,14 +10,15 @@
 <select id="selectLogin" parameterType="mvo" resultType="mvo">
 select *
 	from POLY_MEMBER
-	where mId=#{mId} and mPassword=#{mPassword} and mDel_yn=default
+	where mId=#{mId} and mPassword=#{mPassword} and mDel_yn='N'
 </select>
 
 <!-- selectAutoLogin : 자동로그인 세션 체크 -->
 <select id="selectAutoLogin" parameterType="String" resultType="mvo">
-select * 
+<![CDATA[select * 
 	from POLY_MEMBER
-	where mSessionId=#{mSessionId} and mSessionLimit>=now() and mDel_yn=default
+	where mSessionId=#{mSessionId} and mSessionLimit>=now() and mDel_yn='N'
+	]]>  
 </select>
 
 <!-- updateAutoLogin : 자동로그인 세션 정보 수정 --> 
@@ -63,7 +64,7 @@ insert into
 <select id="selectIdFind" parameterType="mvo" resultType="String">
 select mId 
 	from POLY_MEMBER
-	where mName=#{mName} and mEmail=#{mEmail} and mDel_yn=default
+	where mName=#{mName} and mEmail=#{mEmail} and mDel_yn='N'
 </select>
 
 
@@ -73,7 +74,7 @@ select mId
 <select id="selectPwFind" parameterType="mvo" resultType="String">
 select mPassword 
 	from POLY_MEMBER
-	where mId=#{mId} and mEmail=#{mEmail} and mPhone=#{mPhone} and mDel_yn=default
+	where mId=#{mId} and mEmail=#{mEmail} and mPhone=#{mPhone} and mDel_yn='N'
 </select>
 
 

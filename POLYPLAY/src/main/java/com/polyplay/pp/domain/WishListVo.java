@@ -6,7 +6,6 @@ public class WishListVo {
 	private int midx;
 	private int cidx;
 	private String wWriteday;
-	
 	private String cImage;
 	
 	

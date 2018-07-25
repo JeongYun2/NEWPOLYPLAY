@@ -29,8 +29,8 @@
 		<!-- 속성 이름 -->
 		 <c:forEach items="${alist}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid"></a> </div>
-		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
+        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="${pageContext.request.contextPath}/displayFile?fileName=${cvo.cImage}" class="img-fluid"></a> </div>
+		<h3 class="blog-title">${cvo.cImage}<a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
         
       </div>
      </c:forEach>

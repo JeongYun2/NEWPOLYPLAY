@@ -16,7 +16,7 @@ import com.polyplay.pp.domain.SearchCriteria;
 import com.polyplay.pp.persistence.AdminService_Mapper;
 
 
-@Service("AdminServiceImpl")
+@Service("adminServiceImpl")
 public class AdminServiceImpl implements AdminService {
 
 	@Autowired

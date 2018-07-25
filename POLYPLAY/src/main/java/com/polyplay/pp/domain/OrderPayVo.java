@@ -5,7 +5,7 @@ public class OrderPayVo {
 	private int oidx;
 	private int midx;
 	private int cidx;
-	private String Oid;
+	private String oid;
 	private int oPrice;
 	private String oWriteday;
 	private String oIp;
@@ -44,10 +44,10 @@ public class OrderPayVo {
 		this.cidx = cidx;
 	}
 	public String getOid() {
-		return Oid;
+		return oid;
 	}
 	public void setOid(String oid) {
-		Oid = oid;
+		this.oid = oid;
 	}
 	public int getoPrice() {
 		return oPrice;

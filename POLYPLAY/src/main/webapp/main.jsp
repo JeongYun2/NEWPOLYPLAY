@@ -134,7 +134,7 @@
        
     <c:forEach items="${alist1}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid"></a> </div>
+        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="resources/contents${cvo.cImage}" class="img-fluid"></a> </div>
 		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
         
       </div>
@@ -157,7 +157,7 @@
 
     <c:forEach items="${alist2}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-md-4"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid" ></a> </div>
+        <div class="blog-md-4"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="${pageContext.request.contextPath}/displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid" ></a> </div>
 		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
         
       </div>
@@ -181,7 +181,7 @@
        
     <c:forEach items="${alist3}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid"></a> </div>
+        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="${pageContext.request.contextPath}/displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid"></a> </div>
 		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
         
       </div>
@@ -204,7 +204,7 @@
        
     <c:forEach items="${alist4}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid"></a> </div>
+        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="${pageContext.request.contextPath}/displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid"></a> </div>
 		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
         
       </div>
@@ -221,7 +221,7 @@
    
     <div class="row copy-footer">
       <div class="col-sm-6 col-md-3"><a href="${pageContext.request.contextPath}/BoardNoticeList">고객센터</a></div>	
-      <div class="col-sm-6 col-md-3"> &copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> <a target="_blank" rel="nofollow" href="https://grafreez.com/"></a> Grafreez.com </div>
+      <div class="col-sm-6 col-md-3"> &copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> <a target="_blank" rel="nofollow" href="https://grafreez.com/"></a> TEAM POLYPLAY </div>
       <div class="col-sm-6 col-md-3 pull-right text-xs-right">Created with <i class="fa fa-heart"></i></div>
     </div>
   </div>

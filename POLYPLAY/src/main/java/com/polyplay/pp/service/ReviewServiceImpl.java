@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.polyplay.pp.domain.ReviewVo;
 import com.polyplay.pp.persistence.ReviewService_Mapper;
 
-@Service("ReviewServiceImpl")
+@Service("reviewServiceImpl")
 public class ReviewServiceImpl implements ReviewService {
 
 	@Autowired

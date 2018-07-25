@@ -12,7 +12,6 @@ public class BoardVo {
 	private String bWriteday;
 	private String bModifyday;
 	private String bDel_yn;
-	
 	private String bIp;
 	private String bReply_yn;
 	private int bOridx;

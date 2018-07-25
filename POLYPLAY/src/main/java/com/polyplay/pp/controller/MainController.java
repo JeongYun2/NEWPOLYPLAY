@@ -19,29 +19,11 @@ public class MainController {
 	@Autowired 
 	MainService ms;
 	
-	@RequestMapping(value="/GoToHome")
-	public String HomeController() {
-		
-		
-		
-		return "home";
-	}
-	
-	
 	
 	@RequestMapping(value="/MainList")
 	public String mainListController(Model model) {
 		
-		//selectRecentList
-		//selectViewCntList
-		//selectStarPointList
-		//selectSalesList
-//		PageMaker pageMaker = new PageMaker();
-		
-//		model.addAttribute("pageMaker", pageMaker);
-		
-//		System.out.println("메인pageMaker: "+pageMaker);
-		
+		System.out.println("메인컨트롤러");
 		
 		ArrayList<ContentsVo> alist1 = null;
 		alist1 = ms.selectRecentList(); 

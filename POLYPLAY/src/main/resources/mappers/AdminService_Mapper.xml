@@ -19,7 +19,7 @@ select * from POLY_CONTENTS where cDel_yn= 'N' and cidx=#{cidx}
 
 <insert id="insertContents" parameterType="cvo">
 insert into POLY_CONTENTS(cidx, gidx, cSubject, cPrice, cDirector, cActor, cRuntime, cOpenyear, cStory, cWriteday, cModifyday, cDel_yn, cPreVideo, cVideo, cImage, cViewcnt)
-values(default, #{gidx}, #{cSubject}, #{cPrice}, #{cDirector}, #{cActor}, #{cRuntime}, #{cOpenYear}, #{cStory}, now(), null, 'N', #{cPreVideo}, #{cVideo}, #{cImage}, NULL)
+values(default, #{gidx}, #{cSubject}, #{cPrice}, #{cDirector}, #{cActor}, #{cRuntime}, #{cOpenYear}, #{cStory}, now(), null, 'N', #{cPreVideo}, #{cVideo}, #{cImage}, 0)
 </insert>
 
 <update id="updateContents" parameterType="cvo">

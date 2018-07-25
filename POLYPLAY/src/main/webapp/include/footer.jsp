@@ -13,7 +13,7 @@
    
     <div class="row copy-footer">
 	   <div class="col-sm-6 col-md-3"><a href="${pageContext.request.contextPath}/BoardNoticeList">고객센터</a></div>	
-      <div class="col-sm-6 col-md-3"> &copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> <a target="_blank" rel="nofollow" href="https://grafreez.com/"></a> PolyPlay </div>
+      <div class="col-sm-6 col-md-3"> &copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> <a target="_blank" rel="nofollow" href="https://grafreez.com/"></a> TEAM POLYPLAY </div>
       <div class="col-sm-6 col-md-3 pull-right text-xs-right">Created with <i class="fa fa-heart"></i></div>
     </div>
   </div>

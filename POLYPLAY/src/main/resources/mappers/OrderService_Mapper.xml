@@ -46,7 +46,7 @@ insert into POLY_PAY values(default, #{oid}, #{pMethod}, #{pPrice}, default, #{p
 <!--  -->
 <select id="selectCheckOrder" parameterType="opvo" resultType="opvo">
 
-select o.*,p.*,c.* from POLY_ORDER o, POLY_PAY p, POLY_CONTENTS c where o.oId = p.oid and c.cidx = o.cidx  and o.midx=#{midx} and o.oid=#{oid}
+select o.*,p.*,c.* from POLY_ORDER o, POLY_PAY p, POLY_CONTENTS c where o.oid = p.oid and c.cidx = o.cidx  and o.midx=#{midx} and o.oid=#{oid}
 
 </select>
 

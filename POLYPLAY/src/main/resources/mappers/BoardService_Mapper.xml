@@ -47,7 +47,7 @@ select bidx,bSubcate,bSubject,bContent from POLY_BOARD where bDel_yn='N' and bid
 <![CDATA[
     select C.* from(select B.* from(    
         select rownum as rn, A.*from(
-           select * from POLY_BOARD  where bDel_yn='N' and bCate='3' order by boridx desc,bdepth,bidx
+           select * from POLY_BOARD  where bDel_yn='N' and bCate='3' order by bOridx desc,bDepth,bidx
         )A
     )B where B.rn <=30  )C where C.rn >=1 
  ]]>

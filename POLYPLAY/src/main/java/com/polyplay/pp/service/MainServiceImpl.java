@@ -12,16 +12,24 @@ import com.polyplay.pp.domain.StarPointListVo;
 import com.polyplay.pp.persistence.MainService_Mapper;
 
 
-@Service("MainServiceImpl")
+@Service("mainServiceImpl")
 public class MainServiceImpl implements MainService {
 
 	@Autowired
 	private SqlSession sqlSession;
+
 	
 	@Override
 	public ArrayList<ContentsVo> selectRecentList() {
+		
+		System.out.println("sqlSession연결됐냐? : "+sqlSession);
+		
 		MainService_Mapper csm = sqlSession.getMapper(MainService_Mapper.class);
+		
+		System.out.println("csm주소값: "+csm);
 		ArrayList<ContentsVo> alist = csm.selectRecentList();
+		
+		System.out.println("selectRecentList의 alist: "+alist);
 		return alist;
 	}
 

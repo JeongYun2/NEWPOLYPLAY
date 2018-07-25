@@ -67,9 +67,9 @@ $.reviewList = function(){
 					str += "<tr style='text-align:center;'>"
 					 	+ "<td>"+this.ridx+"</td>"
 						+ "<td width='50%'>"+this.rContent+"</td>" 
-						/* + "<td>"+this.rLike+"<span><a class='like-Unlike' href='''>추천</a></span></td>" */
+						/* + "<td>"+this.rLove+"<span><a class='like-Unlike' href='''>추천</a></span></td>" */
 						
-						+"<td>"+this.rLike+"<button class='btn btn-danger' onclick='$.likeUpdate("+this.ridx+")'>추천</button></td>"
+						+"<td>"+this.rLove+"<button class='btn btn-danger' onclick='$.likeUpdate("+this.ridx+")'>추천</button></td>"
 						
 				     	+ "<td>"+this.rPoint+"</td>" 
 					 	+ "</tr>";					
@@ -170,64 +170,6 @@ $.reviewList = function(){
 
 
 
-
-
-
-
-
-
-
-
-<%-- 	<form name =frm>
-	<table>
-		<!-- 속성 이름 -->
-		<tr>
-			<th>번호</th>
-			<th>회원번호(테스트)</th>
-			<th>컨텐츠 번호</th>
-			<th>별점</th>
-			<th>리뷰내용</th>
-			<th>좋아요</th>
-			<th>리뷰작성날자</th>	
-			<th>아이피</th>		
-		</tr>
-		<tr>
-			<td>${rv.ridx}</td>
-			<td>${rv.midx}</td>
-			<td>${rv.cidx}</td>
-			<td>${rv.rPoint}</td>
-			<td>${rv.rContent}</td>
-			<td>${rv.rLike}</td>
-			<td>${rv.rWriteday}</td>
-			<td>${rv.rIp}</td>
-		</tr>	
-		<input type='button' value='삭제' onclick='javascript:del();'></button>
-		
-	</table>
-	</form>
-	<table>
-		<!-- 속성 이름 -->
-		<tr>
-			<th>번호</th>
-			<th>회원번호(테스트)</th>
-			<th>컨텐츠 번호</th>
-			<th>별점</th>
-			<th>리뷰내용</th>
-			<th>좋아요</th>		
-		</tr>
-		<c:forEach items="${alist}" var="rvo">
-		<!-- 속성 값 -->
-		<tr>
-			<td>${rv.ridx}</td>
-			<td>${rv.midx}</td>
-			<td>${rv.cidx}</td>
-			<td>${rv.rPoint}</td>
-			<td>${rv.rContent}</td>
-			<td>${rv.rLike}<span><a class="like-Unlike" href="">싫어요</a></span></td>
-		</tr>	
-		</c:forEach>
-	</table> --%>
-	
 	
 	
 </body>

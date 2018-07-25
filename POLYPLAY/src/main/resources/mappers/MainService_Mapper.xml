@@ -8,43 +8,26 @@
 
 
 <select id="selectRecentList" resultType ="cvo">
-<![CDATA[select B.* from(
-select rownum as rn, A.* from(
-		select * from POLY_CONTENTS order by cidx desc
-		)A 
-			)B where B.rn <=5
-]]>	 
+select * from POLY_CONTENTS order by cidx desc
 </select>
 
 
 <select id="selectViewCntList" resultType ="cvo">
-<![CDATA[select B.* from(
-		select rownum as rn, A.* from(
-			select * from POLY_CONTENTS order by cViewCnt desc
-		)A
-			)B where B.rn <=5
-]]>	 
+select * from POLY_CONTENTS order by cViewCnt desc
 </select>
 
 
 <select id="selectStarPointList" resultType ="spvo">
-<![CDATA[select B.* from(
-    select rownum as rn, A.* from(
-        select c.cidx, c.cSubject, c.cRuntime, c.cOpenYear, c.cStory,c.cImage,c.cPreVideo,r.rPoint, avg(r.rpoint) as star from POLY_CONTENTS c, poly_review r where c.cidx = r.cidx group by c.cidx,c.cSubject,c.cRuntime,c.cOpenYear,c.cStory,c.cImage,c.cPreVideo,r.rPoint order by star desc
-    )A
-        )B where B.rn <=5
-]]>				
+select c.cidx, c.cSubject, c.cRuntime, c.cOpenYear, c.cStory,c.cImage,c.cPreVideo,r.rPoint, avg(r.rPoint) as star 
+	from POLY_CONTENTS c, POLY_REVIEW r where c.cidx = r.cidx group by c.cidx,c.cSubject,c.cRuntime,c.cOpenYear,c.cStory,c.cImage,c.cPreVideo,r.rPoint 
+		order by star desc
 </select>
 
 
 <select id="selectSalesList" resultType ="slvo">
-<![CDATA[select B.* from(
-    select rownum as rn, A.* from(
-        select c.cidx,c.cSubject,c.cRuntime,c.cOpenYear,c.cStory,c.cImage,c.cPreVideo,o.oid,p.pStatus, count(*) as cnt from POLY_CONTENTS c, POLY_ORDER o, POLY_PAY p 
-        where c.cidx = o.cidx and o.oid = p.oid and p.pStatus='Y' group by c.cidx,c.cSubject,c.cRuntime,c.cOpenYear,c.cStory,c.cImage,c.cPreVideo,o.oid,p.pStatus order by cnt
-    )A
-        )B where B.rn <=5
-]]>			
+select c.cidx,c.cSubject,c.cRuntime,c.cOpenYear,c.cStory,c.cImage,c.cPreVideo,o.oid,p.pStatus, count(*) as cnt from POLY_CONTENTS c, POLY_ORDER o, POLY_PAY p 
+     where c.cidx = o.cidx and o.oid = p.oid and p.pStatus='Y' group by c.cidx,c.cSubject,c.cRuntime,c.cOpenYear,c.cStory,c.cImage,c.cPreVideo,o.oid,p.pStatus
+     	order by cnt
 </select>
 
 

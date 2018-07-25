@@ -41,7 +41,7 @@ delete from POLY_WISHLIST where midx=#{midx} and cidx=#{cidx}
 
 
 <select id="selectMyContents" parameterType="Integer" resultType="opvo">
-select o.cidx, c.cImage from POLY_ORDER o, POLY_PAY p, POLY_CONTENTS c where o.oId = p.oid and c.cidx = o.cidx and p.pStatus='Y' and o.midx=#{midx}
+select o.cidx, c.cImage from POLY_ORDER o, POLY_PAY p, POLY_CONTENTS c where o.oid = p.oid and c.cidx = o.cidx and p.pStatus='Y' and o.midx=#{midx}
 </select>
 
 

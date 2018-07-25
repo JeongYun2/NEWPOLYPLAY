@@ -160,7 +160,7 @@ $(".fileDrop1").on("drop", function(event){
 	formData.append("file", file);
 	
 	$.ajax({
-		url: 'uploadAjax',
+		url: '${pageContext.request.contextPath}/uploadAjax',
 		data: formData,
 		dataType: 'text',
 		processData: false,
@@ -179,14 +179,14 @@ $(".fileDrop1").on("drop", function(event){
 			
 			if(checkImageType(data)){
 				str ="<div>"
-					+ "<a href='displayFile?fileName="+getImageLink(data)+"'>"
-					+"<img src='displayFile?fileName="+data+"'/>"
+					+ "<a href='${pageContext.request.contextPath}/displayFile?fileName="+getImageLink(data)+"'>"
+					+"<img src='${pageContext.request.contextPath}/displayFile?fileName="+data+"'/>"
 					+ "</a><small data-src="+data+">"+getLink(data)+"</small></div>";
 						
 					
 			}else{
 				
-				str = "<div><a href='displayFile?fileName="+data+"'>"
+				str = "<div><a href='${pageContext.request.contextPath}/displayFile?fileName="+data+"'>"
 				+ getOriginalName(data)+"</a>"
 				+ "<small data-src="+data+">X</small></div></div>";
 				
@@ -205,7 +205,7 @@ $(".uploadedList1").on("click", "small", function(event){
 	var that = $(this);
 
 	$.ajax({
-		url:"deleteFile",
+		url:"${pageContext.request.contextPath}/deleteFile",
 		type:"post",
 		data: {fileName:$(this).attr("data-src")},
 		dataType:"text",
@@ -236,7 +236,7 @@ $(".fileDrop2").on("drop", function(event){
 	formData.append("file", file);
 	
 	$.ajax({
-		url: 'uploadAjax',
+		url: '${pageContext.request.contextPath}/uploadAjax',
 		data: formData,
 		dataType: 'text',
 		processData: false,
@@ -255,14 +255,14 @@ $(".fileDrop2").on("drop", function(event){
 			
 			if(checkImageType(data)){
 				str ="<div>"
-					+ "<a href='displayFile?fileName="+getImageLink(data)+"'>"
-					+"<img src='displayFile?fileName="+data+"'/>"
+					+ "<a href='${pageContext.request.contextPath}/displayFile?fileName="+getImageLink(data)+"'>"
+					+"<img src='${pageContext.request.contextPath}/displayFile?fileName="+data+"'/>"
 					+ "</a><small data-src="+data+">"+getLink(data)+"</small></div>";
 						
 					
 			}else{
 				
-				str = "<div><a href='displayFile?fileName="+data+"'>"
+				str = "<div><a href='${pageContext.request.contextPath}/displayFile?fileName="+data+"'>"
 				+ getOriginalName(data)+"</a>"
 				+ "<small data-src="+data+">X</small></div></div>";
 				
@@ -281,7 +281,7 @@ $(".uploadedList2").on("click", "small", function(event){
 	var that = $(this);
 
 	$.ajax({
-		url:"deleteFile",
+		url:"${pageContext.request.contextPath}/deleteFile",
 		type:"post",
 		data: {fileName:$(this).attr("data-src")},
 		dataType:"text",
@@ -312,7 +312,7 @@ $(".fileDrop3").on("drop", function(event){
 	formData.append("file", file);
 	
 	$.ajax({
-		url: 'uploadAjax',
+		url: '${pageContext.request.contextPath}/uploadAjax',
 		data: formData,
 		dataType: 'text',
 		processData: false,
@@ -331,14 +331,14 @@ $(".fileDrop3").on("drop", function(event){
 			
 			if(checkImageType(data)){
 				str ="<div>"
-					+ "<a href='displayFile?fileName="+getImageLink(data)+"'>"
-					+"<img src='displayFile?fileName="+data+"'/>"
+					+ "<a href='${pageContext.request.contextPath}/displayFile?fileName="+getImageLink(data)+"'>"
+					+"<img src='${pageContext.request.contextPath}/displayFile?fileName="+data+"'/>"
 					+ "</a><small data-src="+data+">"+getLink(data)+"</small></div>";
 						
 					
 			}else{
 				
-				str = "<div><a href='displayFile?fileName="+data+"'>"
+				str = "<div><a href='${pageContext.request.contextPath}/displayFile?fileName="+data+"'>"
 				+ getOriginalName(data)+"</a>"
 				+ "<small data-src="+data+">X</small></div></div>";
 				
@@ -357,7 +357,7 @@ $(".uploadedList3").on("click", "small", function(event){
 	var that = $(this);
 
 	$.ajax({
-		url:"deleteFile",
+		url:"${pageContext.request.contextPath}/deleteFile",
 		type:"post",
 		data: {fileName:$(this).attr("data-src")},
 		dataType:"text",
@@ -377,9 +377,9 @@ $(".uploadedList3").on("click", "small", function(event){
 </head>
 <body>
 <Form name="frm" enctype ="multipart/form-data" >
-<input type="hidden" name="cImage" id="cImage"/>  
-<input type="hidden" name="cPreVideo" id="cPreVideo"/>  
-<input type="hidden" name="cVideo" id="cVideo"/>  
+<input type="text" name="cImage" id="cImage"/>  
+<input type="text" name="cPreVideo" id="cPreVideo"/>  
+<input type="text" name="cVideo" id="cVideo"/>  
 <h5>컨텐츠 관리</h5>
 <h1>컨텐츠 등록</h1>
 <table>

@@ -8,7 +8,7 @@ public class ReviewListVo {
 	private int cidx;
 	private int rPoint;
 	private String rContent;
-	private int rLike;
+	private int rLove;
 	private String rWriteday;
 	private String rDel_yn;
 	private String rIp;
@@ -44,11 +44,11 @@ public class ReviewListVo {
 	public void setrContent(String rContent) {
 		this.rContent = rContent;
 	}
-	public int getrLike() {
-		return rLike;
+	public int getrLove() {
+		return rLove;
 	}
-	public void setrLike(int rLike) {
-		this.rLike = rLike;
+	public void setrLove(int rLove) {
+		this.rLove = rLove;
 	}
 	public String getrWriteday() {
 		return rWriteday;
@@ -74,6 +74,7 @@ public class ReviewListVo {
 	public void setmNickname(String mNickname) {
 		this.mNickname = mNickname;
 	}
+
 	
 	
 }
