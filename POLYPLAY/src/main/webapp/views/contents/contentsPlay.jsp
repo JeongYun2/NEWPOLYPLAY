@@ -12,7 +12,9 @@
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
+
 <div class="container">
+<c:out value="${cv.cPreVideo}"/>
 <br>
 <br>
 <br>
@@ -20,8 +22,9 @@
 <br>
 <br>
 <br>
-<input type="hidden" name="cidx" id="cidx"/> 
+<input type="text" name="cidx" id="cidx" value="${cv.cidx}"/> 
 <video controls autoplay>
+
 <source src="resources/contents${cv.cPreVideo}" width="320" height="240" controls="controls">
 </video>
 

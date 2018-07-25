@@ -60,8 +60,8 @@ function reviewList(){
 					 	+ "</tr>";					
 				});
 
-				$('#tbl').html("<table border='1' width='100%' style='text-align:center;'>"
-							 + "<tr style='text-align:center;background-color:skyblue;'>"
+				$('#tbl').html("<table class='table table-striped table-bordered table-hover' border='1' width='100%' style='text-align:center;'>"
+							 + "<tr>"
 				 			 + "<td>글번호</td>"
 				 			 + "<td width='50%'>100자평</td>" 
 				 			 + "<td>추천수</td>"
@@ -147,14 +147,27 @@ function reviewList(){
     </script>
 </head>
 <body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
+  <div class="col-md-12">
+            <div class="heading text-md-center text-xs-center" >
+      <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cidx}" ><font size="5">컨텐츠 정보   |</font></a>
+   
+      <a href="${pageContext.request.contextPath}/ReviewList?cidx=${cidx}"><font size="5">|   리뷰보기</font></a>
+    </div>
+        </div>
 
 <form name="frm">
  <input type="hidden" name="cidx" id="cidx" value="${cidx}" />
