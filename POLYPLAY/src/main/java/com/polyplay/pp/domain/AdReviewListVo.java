@@ -9,7 +9,7 @@ public class AdReviewListVo { // 관리자 selectAdReview에서 쓰는 것.
 	private String mNickname;
 	private int rPoint;
 	private String rContent;
-	private int rLike;
+	private int rLove;
 	private String rWriteday;
 	private String rDel_yn;
 	
@@ -57,11 +57,11 @@ public class AdReviewListVo { // 관리자 selectAdReview에서 쓰는 것.
 	public void setrContent(String rContent) {
 		this.rContent = rContent;
 	}
-	public int getrLike() {
-		return rLike;
+	public int getrLove() {
+		return rLove;
 	}
-	public void setrLike(int rLike) {
-		this.rLike = rLike;
+	public void setrLove(int rLove) {
+		this.rLove = rLove;
 	}
 	public String getrWriteday() {
 		return rWriteday;

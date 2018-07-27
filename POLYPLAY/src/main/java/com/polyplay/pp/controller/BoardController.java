@@ -109,9 +109,11 @@ public class BoardController {
 	   }
 	
 	@RequestMapping(value="/BoardInquiryWrite")
-	   public String boardInquiryWriteController() {
+	   public String boardInquiryWriteController(HttpSession session, Model model) {
 	      
-	      //
+		int midx = (Integer)session.getAttribute("sMemberMidx");
+		
+		model.addAttribute("midx", midx);
 	      
 	      return "views/board/boardInquiryWrite";
 	   }
@@ -122,7 +124,7 @@ public class BoardController {
 			@RequestParam("bWriter") String bWriter,
 			@RequestParam("bSubject") String bSubject,
 			@RequestParam("bContent") String bContent,
-			
+			@RequestParam("midx") int midx,
 			@RequestParam("bPassword") String bPassword
 			) throws UnknownHostException {
 				
@@ -133,7 +135,7 @@ public class BoardController {
 		
 	
 		
-		int res = bsi.insertInquiry(bSubcate, bWriter,bSubject, bContent,bIp,bPassword);
+		int res = bsi.insertInquiry(midx, bSubcate, bWriter,bSubject, bContent,bIp,bPassword);
 		
 		
 		return "redirect:/BoardInquiryList";

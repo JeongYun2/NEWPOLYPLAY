@@ -85,11 +85,20 @@ function goMyOrder(){
 		<!-- 속성 값 -->
 		<tr>
 			<td>${oclvo.cidx} ${status.count}</td>
-			<td>${oclvo.cImage}</td>
+			<td><img src="/polyplay/resources/contents${oclvo.cImage}" class="img-fluid" /></td>
 			<td>${oclvo.cSubject}</td>
 			<td>${oclvo.oPrice}</td>
 			<td>${oclvo.oWriteday}</td>
-			<td>${oclvo.pMethod}</td>
+			<c:choose>
+				<c:when test="${oclvo.pMethod eq 'B'}">
+					<c:set var="pMethod" value="무통장입금" />
+				</c:when>
+				
+				<c:otherwise>
+					<c:set var="pMethod" value="카드결제" />
+				</c:otherwise>
+			</c:choose>
+			<td><c:out value="${pMethod}"/></td>
 			<td>${oclvo.pDepositor}</td>
 			<td>${oclvo.pPrice}</td>
 		</tr>

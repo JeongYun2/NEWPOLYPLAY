@@ -26,7 +26,16 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	
+	
 	<dependencies>
+	
+		<!-- mysql db연결관련 추가 -->
+		<dependency> 
+	   		<groupId>mysql</groupId>
+	    	<artifactId>mysql-connector-java</artifactId>
+	    	<version>5.1.6</version> 
+	   </dependency>
+		
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

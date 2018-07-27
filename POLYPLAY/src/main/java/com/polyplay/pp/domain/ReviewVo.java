@@ -12,6 +12,7 @@ public class ReviewVo {
 	private String rDel_yn;
 	private String rDeleteday;
 	private String rIp;
+
 	
 	
 	

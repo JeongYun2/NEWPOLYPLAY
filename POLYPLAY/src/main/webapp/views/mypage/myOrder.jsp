@@ -49,9 +49,31 @@
 		<!-- 속성 값 -->
 		<tr>
 			<td>${opvo.oid}</td>
-			<td>${opvo.pMethod}</td>
+			
+			<c:choose>
+				<c:when test="${opvo.pMethod eq 'B'}">
+					<c:set var="pMethod" value="무통장입금" />
+				</c:when>
+				
+				<c:otherwise>
+					<c:set var="pMethod" value="카드결제" />
+				</c:otherwise>
+			</c:choose>
+			<td><c:out value="${pMethod}"/></td>
+			
 			<td>${opvo.pPrice}</td>
-			<td>${opvo.pStatus}</td>
+			
+			<c:choose>
+				<c:when test="${opvo.pStatus eq 'N'}">
+					<c:set var="pStatus" value="입금대기중" />
+				</c:when>
+				
+				<c:when test="${opvo.pStatus eq 'Y'}">
+					<c:set var="pStatus" value="결제완료" />
+				</c:when>
+			</c:choose>
+			<td><c:out value="${pStatus}"/></td>
+			
 			<td>${opvo.oWriteday}</td>
 		</tr>
 

@@ -21,7 +21,7 @@
 <br>
 <!--  -->
 
-<h1>MY찜목록</h1>
+<h1>찜한작품</h1>
 <c:choose>
 	<c:when test="${sMemberMidx != null}">
 		<c:set var="midx" value="${sMemberMidx}" />
@@ -35,20 +35,19 @@
 
 <input type="hidden" id="midx" name="midx" value="${sMemberMidx}"/>
 
-<table border="1" width="80%" style="text-align: center;">
+<table class="table table-striped table-bordered table-hover" style="text-align: center;">
 		<!-- 속성 이름 -->
 		<tr>
-			<th>cidx</th>
-			<th>썸네일</th>
+			<th>　　　　　　　　　　　　　　　</th>
+			<th>　　　　　　　　　　　　　　　</th>
 			
 	
 		</tr>
 		<c:forEach var="wlvo" items="${wishList}">
 		<!-- 속성 값 -->
 		<tr>
-			<td>${wlvo.cidx}</td>
-			<td><img src="displayFile?fileName=${wlvo.cImage}" class="img-fluid" /></td>
-			
+			<td><a href="<%=request.getContextPath()%>/ContentsInfo?midx=${sMemberMidx}&cidx=${wlvo.cidx}"><img src="/polyplay/resources/contents${wlvo.cImage}" class="img-fluid" /></a></td>
+			<td><a href="<%=request.getContextPath()%>/MyWishDelete?midx=${sMemberMidx}&cidx=${wlvo.cidx}">삭제</a></td>
 		</tr>
 		</c:forEach>
 	</table>

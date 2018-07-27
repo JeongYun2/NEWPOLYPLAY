@@ -40,6 +40,8 @@ public interface MyPageService {
 	
 	public ArrayList<OrderPayVo> selectMyOrder(int midx);
 	
+	public int deleteWishList(int midx, int cidx);
+	
 	
 	
 	

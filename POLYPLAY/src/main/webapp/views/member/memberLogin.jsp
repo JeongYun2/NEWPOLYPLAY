@@ -239,10 +239,10 @@ $.check = function(){
                         <label for="pass" class="label">비밀번호</label>
                         <input id="mPassword" name="mPassword" placeholder="비밀번호" type="password" class="input" data-type="password">
                     </div>
-                    <div class="group">
-                        <input name="useCookie" id="useCookie" type="checkbox" class="check" checked>
+                    <!-- <div class="group">
+                        <input name="useCookie" id="useCookie" type="checkbox" class="check">
                         <label for="check"><span class="icon"></span> 자동 로그인</label>
-                    </div>
+                    </div> -->
                     <div class="group">
                         <input type="button" id="login" class="button" value="로그인" onclick="$.check();">
                     </div>

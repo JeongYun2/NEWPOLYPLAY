@@ -72,7 +72,7 @@ function payCheck() {
 		<!-- 속성 이름 -->
 		<tr>
 			
-			<th>썸네일</th>
+			<th></th>
 			<th>제목</th>
 			<th>금액</th>
 			<th></th>
@@ -83,7 +83,7 @@ function payCheck() {
 		<!-- 속성 값 -->
 		<tr>
 			
-			<td><img src="displayFile?fileName=${opvo.cImage}" class="img-fluid" /></td>
+			<td><img src="/polyplay/resources/contents${opvo.cImage}" class="img-fluid" /></td>
 			<td>${opvo.cSubject}</td>
 			<td>${opvo.oPrice}</td>
 		<%-- 	<input type="hidden" id="baPrice${status.count}" name="baPrice" value="${blvo.cPrice}"/> --%>
@@ -96,17 +96,17 @@ function payCheck() {
 		</tr>
 		</c:forEach>
 	</table>
-	총 결제금액 : <c:out value="${i} "/>
+	*** 총 결제금액 : <c:out value="${i} "/>
 	<input type="hidden" name="pPrice" value="${i}">
 		<br>
 	<br>
-	주문번호 : <c:out value="${j} "/>
+	*** 주문번호 : <c:out value="${j} "/>
 	<input type="hidden" name="oid" value="${j}">
 	
 	<br>
 	<br>
 	<br>
-	***결제주의사항***<br>
+	*** 결제주의사항 ***<br>
 무통장 입금은 pc뱅킹,인터넷뱅킹 텔레뱅킹 혹은 가까운 은행에서 직접 입금하시면 됩니다<br>
 주문시 입력한 임금자명과 실제 입금자의 성명이 반드시 일치하여야 하면, 7일 이내로 입금을 하셔야 하고 입금 되지 않은 주문은 
 자동취소 됩니다.<br><br>
@@ -119,13 +119,20 @@ function payCheck() {
 	
 	
 	<br>
-	결제방법선택
+	*** 결제방법선택 ***
 	<br>
 	<input type="radio" name="pMethod" value="C"/>카드결제
 	<input type="radio" name="pMethod" value="B" checked/>무통장입금
 	<br>
 	<br>
-	입금자명 : <input type="text" name="pDepositor" id="pDepositor" size="20" maxlength="20"/>
+	*** 입금계좌안내 ***
+	<br>
+	(주)POLYPLAY 폴리은행 XXXXXX-XXXXX-XXX
+	<br><br>
+	
+	*** 입금자명 : <input type="text" name="pDepositor" id="pDepositor" size="20" maxlength="20"/>
+	<br>
+	<br>
 
 <button type="submit"  class="btn btn-primary" id="pay" name="pay">결제하기</button>
 

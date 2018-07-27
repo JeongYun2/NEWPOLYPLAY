@@ -91,6 +91,9 @@ $(document).ready(function(){
 	background-color:#fdfdfd;
 }
 </style>
+
+<input type="hidden" name="midx" value="#{midx}"/>
+
 <table class=table1_1  width="1000" height="100"   style="margin-left: auto; margin-right: auto;">
 <tr>
 	<th width="50">카테고리</th> 

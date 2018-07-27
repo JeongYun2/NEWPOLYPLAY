@@ -132,6 +132,19 @@ public class MyPageController {
 		return "views/mypage/myWishList";
 	}
 	
+	@RequestMapping(value="/MyWishDelete")
+	public String myWishDeleteController(@RequestParam("midx")int midx, @RequestParam("cidx")int cidx,
+			Model model) { //@RequestParam("midx") int midx,
+		
+		System.out.println("myBasketDeleteController들어옴");
+		
+		mps.deleteWishList(midx, cidx);
+		
+		model.addAttribute("midx", midx);
+		
+		return "redirect:/MyWishList";
+
+	}
 	
 	@RequestMapping(value="/FromBaToWish")
 	public String fromBaToWishController(

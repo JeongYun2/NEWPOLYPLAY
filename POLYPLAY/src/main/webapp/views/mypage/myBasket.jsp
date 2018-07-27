@@ -72,7 +72,7 @@ function orderCheck() {
 </c:choose>
 
 <input type="hidden" id="midx" name="midx" value="${sMemberMidx}"/>
-<table border="1" width="80%" style="text-align: center;">
+<table class="table table-striped table-bordered table-hover" >
 		<!-- 속성 이름 -->
 		<tr>
 			<th></th>
@@ -80,23 +80,18 @@ function orderCheck() {
 			<th>제목</th>
 			<th>금액</th>
 			<th></th>
+			<th></th>
 	
 		</tr>
 		<c:forEach var="blvo" items="${basketList}" varStatus ="status">
 		<!-- 속성 값 -->
 		<tr>
 			<td><input type="checkbox" id="cidx${status.count}" name="cidx" value="${blvo.cidx}"></td>
-			<td><img src="displayFile?fileName=${blvo.cImage}" class="img-fluid" /></td>
+			<td><img src="/polyplay/resources/contents${blvo.cImage}" class="img-fluid" /></td>
 			<td>${blvo.cSubject}</td>
 			<td>${blvo.cPrice}</td>
-		<%-- 	<input type="hidden" id="baPrice${status.count}" name="baPrice" value="${blvo.cPrice}"/> --%>
-			<td>
-			
-			
-				<a href="<%=request.getContextPath()%>/FromBaToWish?midx=1&cidx=${blvo.cidx}">찜하기</a>
-				<a href="<%=request.getContextPath()%>/MyBasketDelete?midx=1&cidx=${blvo.cidx}">삭제</a>
-				<!-- <input type="button" name="addToWish" value="찜하기" onclick=";" />
-				<button id="addToWish" >삭제</button> -->
+			<td><a href="<%=request.getContextPath()%>/FromBaToWish?midx=${sMemberMidx}&cidx=${blvo.cidx}">찜하기</a></td>	
+			<td><a href="<%=request.getContextPath()%>/MyBasketDelete?midx=${sMemberMidx}&cidx=${blvo.cidx}">삭제</a></td>
 		</tr>
 		</c:forEach>
 	</table>

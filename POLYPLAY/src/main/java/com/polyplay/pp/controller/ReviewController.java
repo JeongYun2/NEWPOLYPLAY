@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.polyplay.pp.domain.ReviewListVo;
 import com.polyplay.pp.domain.ReviewVo;
 import com.polyplay.pp.service.ReviewService;
 
@@ -47,11 +49,11 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/ReviewListAjax/{cidx}")
-	public @ResponseBody ArrayList<ReviewVo> boardListAjaxController(@PathVariable("cidx") int cidx) {
+	public @ResponseBody ArrayList<ReviewListVo> boardListAjaxController(@PathVariable("cidx") int cidx) {
 	
 		System.out.println("ReviewListAjax컨트롤러들어옴?");
 		
-		ArrayList<ReviewVo> alist = null;
+		ArrayList<ReviewListVo> alist = null;
 		alist = rs.selectReviewList(cidx);
 		
 		System.out.println("alist: "+alist);

@@ -41,7 +41,7 @@ function reviewList(){
 			datatype : "json",
 			cache : false,
 			error:function(request,status,error){
-		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		       // alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 		       },
 			success : function(data){
 				
@@ -49,31 +49,57 @@ function reviewList(){
 				
 				$(data).each(function(){		
 					
+					//alert(this.mNickname);
+					var star = null;
+					
+					if(this.rPoint == 1){
+			     		 star = "★☆☆☆☆";
+						} else if(this.rPoint == 2){
+							star = "★★☆☆☆";
+						} else if(this.rPoint == 3){
+							star = "★★★☆☆";
+						} else if(this.rPoint == 4){
+							star ="★★★★☆";							
+						} else if(this.rPoint == 5){
+							star ="★★★★★";
+						}
+					
+					
 					str += "<tr style='text-align:center;'>"
 					 	+ "<td>"+this.ridx+"</td>"
 						+ "<td width='50%'>"+this.rContent+"</td>" 
-						/* + "<td>"+this.rLike+"<span><a class='like-Unlike' href='''>추천</a></span></td>" */
-						+ "<td>"+this.rLike+"</td>"
+						/* + "<td>"+this.rLove+"<span><a class='like-Unlike' href='''>추천</a></span></td>" */
+						+ "<td>"+this.rLove+"</td>"
 						+"<td><button class='btn btn-danger' onclick='likeUpdate("+this.ridx+");'>추천</button></td>"
-						
-				     	+ "<td>"+this.rPoint+"</td>" 
+																			
+				     	+ "<td>"+star+"</td>"    	
+				     	
+				     	+ "<td>"+this.mNickname+"</td>" 
 					 	+ "</tr>";					
 				});
 
-				$('#tbl').html("<table class='table table-striped table-bordered table-hover' border='1' width='100%' style='text-align:center;'>"
+				$('#tbl').html("<table class='table table-striped table-bordered table-hover' style='text-align:center;'>"
 							 + "<tr>"
 				 			 + "<td>글번호</td>"
 				 			 + "<td width='50%'>100자평</td>" 
 				 			 + "<td>추천수</td>"
 				 			 + "<td>추천하기</td>"
 				 			 + "<td>별점</td>" 
+				 			 + "<td>작성자</td>"
 				   		 	 + "</tr>" 
 				 			 + str
 				 			 + "</table>");				
 
 				} 
-				
-		
+	/* 			
+		       <select name="rPoint">
+		  	 <option value="0">별점을 선택하세요.</option>
+		  	 <option value="1">★☆☆☆☆</option>
+		  	 <option value="2">★★☆☆☆</option>
+		  	 <option value="3">★★★☆☆</option>
+		  	 <option value="4">★★★★☆</option>
+		  	 <option value="5">★★★★★</option>
+		  	</select> */
 				
 		});	  //ajax끝
 
@@ -95,7 +121,7 @@ function reviewList(){
 	            
 	            cache : false,
 	            error : function(){            
-	               alert("error");
+	              // alert("error");
 	            },
 	            success : function(data){
 	              // alert(data);
@@ -211,7 +237,7 @@ function reviewList(){
 			<td>${rv.cidx}</td>
 			<td>${rv.rPoint}</td>
 			<td>${rv.rContent}</td>
-			<td>${rv.rLike}</td>
+			<td>${rv.rLove}</td>
 			<td>${rv.rWriteday}</td>
 			<td>${rv.rIp}</td>
 		</tr>	
@@ -237,7 +263,7 @@ function reviewList(){
 			<td>${rv.cidx}</td>
 			<td>${rv.rPoint}</td>
 			<td>${rv.rContent}</td>
-			<td>${rv.rLike}<span><a class="like-Unlike" href="">싫어요</a></span></td>
+			<td>${rv.rLove}<span><a class="like-Unlike" href="">싫어요</a></span></td>
 		</tr>	
 		</c:forEach>
 	</table> --%>

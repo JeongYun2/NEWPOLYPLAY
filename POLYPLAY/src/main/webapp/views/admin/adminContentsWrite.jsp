@@ -166,6 +166,9 @@ $(".fileDrop1").on("drop", function(event){
 		processData: false,
 		contentType: false,
 		type: 'POST',
+		error:function(request,status,error){
+	        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       },
 		success: function(data){
 			alert(data);
 			

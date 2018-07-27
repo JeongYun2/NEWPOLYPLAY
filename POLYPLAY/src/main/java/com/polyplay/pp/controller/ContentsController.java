@@ -29,6 +29,7 @@ public class ContentsController {
 				
 		alist = cs.selectGenreList(gidx);
 		
+		model.addAttribute("gidx", gidx);
 		model.addAttribute("alist", alist);
 		
 		

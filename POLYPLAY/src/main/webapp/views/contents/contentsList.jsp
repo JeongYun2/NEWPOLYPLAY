@@ -22,15 +22,45 @@
     <div class="row">
         <div class="col-md-12">
             <div class="heading text-md-center text-xs-center">
-      <h2>장르별 영화 리스트</h2>
+            
+            <c:set var="gName" value="" />
+            <c:choose>
+				<c:when test="${gidx == 1}">
+					<c:set var="gName" value="액션" />
+				</c:when>
+				<c:when test="${gidx == 2}">
+					<c:set var="gName" value="스릴러" />
+				</c:when>
+				<c:when test="${gidx == 3}">
+					<c:set var="gName" value="SF/판타지" />
+				</c:when>
+				<c:when test="${gidx == 4}">
+					<c:set var="gName" value="공포" />
+				</c:when>
+				<c:when test="${gidx == 5}">
+					<c:set var="gName" value="코미디" />
+				</c:when>
+				<c:when test="${gidx == 6}">
+					<c:set var="gName" value="로맨스" />
+				</c:when>
+				<c:when test="${gidx == 7}">
+					<c:set var="gName" value="드라마" />
+				</c:when>
+				<c:when test="${gidx == 8}">
+					<c:set var="gName" value="애니메이션" />
+				</c:when>
+			</c:choose>
+			
+			
+      <h2><c:out value="${gName}"/></h2>
     </div>
         </div>
 	
 		<!-- 속성 이름 -->
 		 <c:forEach items="${alist}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="${pageContext.request.contextPath}/displayFile?fileName=${cvo.cImage}" class="img-fluid"></a> </div>
-		<h3 class="blog-title">${cvo.cImage}<a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
+        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="/polyplay/resources/contents${cvo.cImage}" class="img-fluid"></a> </div>
+		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}</a></h3>
         
       </div>
      </c:forEach>

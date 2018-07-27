@@ -140,6 +140,15 @@ public class MyPageServiceImpl implements MyPageService {
 		return alist;
 	}
 
+
+	@Override
+	public int deleteWishList(int midx, int cidx) {
+
+		MyPageService_Mapper mpsm = sqlSession.getMapper(com.polyplay.pp.persistence.MyPageService_Mapper.class);
+		int result = mpsm.deleteWishList(midx, cidx);
+		return result;
+	}
+
 	
 	
 	

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.polyplay.pp.domain.ReviewListVo;
 import com.polyplay.pp.domain.ReviewVo;
 import com.polyplay.pp.persistence.ReviewService_Mapper;
 
@@ -25,10 +26,10 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public ArrayList<ReviewVo> selectReviewList(int cidx) {
+	public ArrayList<ReviewListVo> selectReviewList(int cidx) {
 		
 		ReviewService_Mapper rsm = sqlSession.getMapper(ReviewService_Mapper.class);
-		ArrayList<ReviewVo> alist = rsm.selectReviewList(cidx);
+		ArrayList<ReviewListVo> alist = rsm.selectReviewList(cidx);
 		
 		System.out.println("selectReviewList결과값: "+alist);
 		

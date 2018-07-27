@@ -1,6 +1,8 @@
 package com.polyplay.pp.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -107,11 +109,11 @@ public class MemberController {
 		
 		int sMemberMidx = (Integer)session.getAttribute("sMemberMidx");
 		
-		MemberVo mvo = new MemberVo();
-		mvo.setMidx(sMemberMidx);
-		mvo.setmSessionId("");
-		mvo.setmSessionLimit("");
-		ms.updateAutoLogin(mvo);
+//		MemberVo mvo = new MemberVo();
+//		mvo.setMidx(sMemberMidx);
+//		mvo.setmSessionId("");
+//		mvo.setmSessionLimit("");
+//		ms.updateAutoLogin(mvo);
 		
 		
 //		로그인을 하지 않았으면 메인 페이지로 보낸다.
@@ -157,38 +159,40 @@ public class MemberController {
 		return cnt;
 	}
 	
-	@RequestMapping(value="/MemberJoinAction", method=RequestMethod.POST, produces = "application/text; charset=utf8")
-	public String memberJoinActionController(MemberVo mvo,
-			HttpServletRequest request) throws UnsupportedEncodingException {
-        
-		// 사용자 아이피를 가져온다.
-		String userIP = request.getRemoteAddr();
-		mvo.setmIp(userIP);
-		
-		logger.info("/MemberJoinAction로 들어 왔습니다.");
-		logger.info("회원님의 아이디: "+mvo.getmId()
-						+", 비밀번호: "+mvo.getmPassword()
-						+", 이메일: "+mvo.getmEmail()
-						+", 전화번호: "+mvo.getmPhone()
-						+", 이름: "+mvo.getmName()
-						+", 닉네임: "+mvo.getmNickname()
-						+", 아이피: "+mvo.getmIp());
-		
-		
-		int res = ms.insertMember(mvo);
-		System.out.println("res: "+res);
-		
-		String page = null;
-		
-		if(res == 1){
-			page = "redirect:/MemberLogin";
-		} else {
-			page = "redirect:/MemberJoin";
-		}
-		
-		return page;
-	}
-	
+	@RequestMapping(value="/MemberJoinAction")
+	   public String memberJoinActionController(MemberVo mvo,
+	         HttpServletRequest request) throws UnsupportedEncodingException {
+	        
+	      // 사용자 아이피를 가져온다.
+	      
+	      
+	      String userIP = null;
+	      
+	   
+	      InetAddress local;
+	      try {
+	         local = InetAddress.getLocalHost();
+	         userIP = local.getHostAddress();
+	      } catch (UnknownHostException e) {
+	         e.printStackTrace();
+	      }
+	      
+	      
+	      
+	      mvo.setmIp(userIP);
+	      int res = ms.insertMember(mvo);
+	      System.out.println("res: "+res);
+	      
+	      String page = null;
+	      
+	      if(res == 1){
+	         page = "redirect:/MemberLogin";
+	      } else {
+	         page = "redirect:/MemberJoin";
+	      }
+	      
+	      return page;
+	   }
 	
 	@RequestMapping(value="/MemberIdFind")
 	public String memberIdFindController() {

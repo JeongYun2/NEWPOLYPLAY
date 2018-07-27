@@ -22,7 +22,7 @@
 <br>
 <br>
 <br>
-<input type="text" name="cidx" id="cidx" value="${cv.cidx}"/> 
+<input type="hidden" name="cidx" id="cidx" value="${cv.cidx}"/> 
 <video controls autoplay>
 
 <source src="resources/contents${cv.cPreVideo}" width="320" height="240" controls="controls">

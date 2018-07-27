@@ -103,13 +103,13 @@
 <!--배너 파트  -->
 <div class="swiper-container main-slider" id="myCarousel">
   <div class="swiper-wrapper">
-    <div class="swiper-slide slider-bg-position" style="background:url('resources/image/1111.jpg')" data-hash="slide1">
+    <div class="swiper-slide slider-bg-position" style="background:url('resources/contents/mainbanner_1.jpg')" data-hash="slide1">
      
     </div>
-    <div class="swiper-slide slider-bg-position" style="background:url('resources/image/2222.jpg')" data-hash="slide2">
+    <div class="swiper-slide slider-bg-position" style="background:url('resources/contents/mainbanner_2.jpg')" data-hash="slide2">
       
     </div>
-    <div class="swiper-slide slider-bg-position" style="background:url('resources/image/3333.jpg')" data-hash="slide3">
+    <div class="swiper-slide slider-bg-position" style="background:url('resources/contents/mainbanner_3.jpg')" data-hash="slide3">
       
     </div>
   </div>
@@ -127,15 +127,15 @@
     <div class="row">
         <div class="col-md-12">
             <div class="heading text-md-center text-xs-center">
-      <h2><small>최근 업데이트 된 작품</small>지금 구매하세요</h2>
+      <h2><small>POLYPLAY의 따끈따끈 신작</small>최근 업데이트 된 작품</h2>
     </div>
         </div>
         
        
     <c:forEach items="${alist1}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="resources/contents${cvo.cImage}" class="img-fluid"></a> </div>
-		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
+        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="/polyplay/resources/contents${cvo.cImage}" class="img-fluid"></a> </div>
+		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}</a></h3>
         
       </div>
      </c:forEach>
@@ -150,15 +150,15 @@
     <div class="row">
         <div class="col-md-12">
             <div class="heading text-md-center text-xs-center">
-      <h2><small>요즘 뜨는 컨텐츠</small>지금 구매하세요</h2>
+      <h2><small>폴리회원들의 관심작</small>요즘 뜨는 컨텐츠</h2>
     </div>
         </div>
 
 
     <c:forEach items="${alist2}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-md-4"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="${pageContext.request.contextPath}/displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid" ></a> </div>
-		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
+        <div class="blog-md-4"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="/polyplay/resources/contents${cvo.cImage}" alt="" class="img-fluid" ></a> </div>
+		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}</a></h3>
         
       </div>
      </c:forEach>
@@ -174,15 +174,15 @@
     <div class="row">
         <div class="col-md-12">
             <div class="heading text-md-center text-xs-center">
-      <h2><small>평가가 높은 영화</small>지금 구매하세요</h2>
+      <h2><small>폴리회원들의 사랑을 받는</small>높은 평가를 받은 작품</h2>
     </div>
         </div>
         
        
     <c:forEach items="${alist3}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="${pageContext.request.contextPath}/displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid"></a> </div>
-		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
+        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="/polyplay/resources/contents${cvo.cImage}" alt="" class="img-fluid"></a> </div>
+		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}</a></h3>
         
       </div>
      </c:forEach>
@@ -197,15 +197,15 @@
     <div class="row">
         <div class="col-md-12">
             <div class="heading text-md-center text-xs-center">
-      <h2><small>폴리 회원들이 많이 시청하는 영화</small>지금 구매하세요</h2>
+      <h2><small>폴리회원들의 선택!</small>많이 구매한 작품</h2>
     </div>
         </div>
         
        
     <c:forEach items="${alist4}" var="cvo">
       <div class="col-md-3 blog-box">
-        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="${pageContext.request.contextPath}/displayFile?fileName=${cvo.cImage}" alt="" class="img-fluid"></a> </div>
-		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}"</a></h3>
+        <div class="blog-image-block"> <a href="${pageContext.request.contextPath}/ContentsInfo?cidx=${cvo.cidx}"><img src="/polyplay/resources/contents${cvo.cImage}" alt="" class="img-fluid"></a> </div>
+		<h3 class="blog-title"><a href="${pageContext.request.contextPath}/ContentsPlay?cidx=${cvo.cidx}">${cvo.cSubject}</a></h3>
         
       </div>
      </c:forEach>
@@ -220,7 +220,7 @@
   <div class="container">
    
     <div class="row copy-footer">
-      <div class="col-sm-6 col-md-3"><a href="${pageContext.request.contextPath}/BoardNoticeList">고객센터</a></div>	
+      <div class="col-sm-6 col-md-3"><a href="${pageContext.request.contextPath}/BoardNoticeList">Customer Service Center</a></div>	
       <div class="col-sm-6 col-md-3"> &copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> <a target="_blank" rel="nofollow" href="https://grafreez.com/"></a> TEAM POLYPLAY </div>
       <div class="col-sm-6 col-md-3 pull-right text-xs-right">Created with <i class="fa fa-heart"></i></div>
     </div>

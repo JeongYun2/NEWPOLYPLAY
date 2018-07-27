@@ -99,9 +99,10 @@ public class BoardServiceImpl implements BoardService{
 
 
 		@Override
-		public int insertInquiry(String bSubcate,String bWriter,String bSubject, String bContent,  String bIp, String bPassword){
+		public int insertInquiry(int midx, String bSubcate,String bWriter,String bSubject, String bContent,  String bIp, String bPassword){
 			
 			HashMap<String,Object> map = new HashMap<String,Object>();
+			map.put("midx", midx);
 			map.put("bSubcate", bSubcate);
 			System.out.print(bSubcate);
 			map.put("bWriter", bWriter);

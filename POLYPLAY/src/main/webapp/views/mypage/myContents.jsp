@@ -20,7 +20,7 @@
 <br>
 <br>
 <br>
-<h1>MY 구입한 작품 </h1>
+<h1>구입한 작품 </h1>
 
 
 
@@ -39,18 +39,16 @@
 
 <input type="hidden" id="midx" name="midx" value="${sMemberMidx}"/>
 
-<table border="1" width="80%" style="text-align: center;">
+<table class="table table-striped table-bordered table-hover" >
 		<!-- 속성 이름 -->
 		<tr>
-			<th>cidx</th>
-			<th>썸네일</th>
+			<th>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</th>
 	
 		</tr>
 		<c:forEach var="opvo" items="${myContentsList}" varStatus ="status">
 		<!-- 속성 값 -->
 		<tr>
-			<td><a href="<%=request.getContextPath()%>/ContentsPlay?cidx=${opvo.cidx}">${opvo.cidx}</a></td>
-			<td><img src="displayFile?fileName=${opvo.cImage}" class="img-fluid" /></td>
+			<td><a href="<%=request.getContextPath()%>/ContentsPlay?cidx=${opvo.cidx}"><img src="/polyplay/resources/contents${opvo.cImage}" class="img-fluid" /></a></td>
 	
 		</tr>
 		</c:forEach>
