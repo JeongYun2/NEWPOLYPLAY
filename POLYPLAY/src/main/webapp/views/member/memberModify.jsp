@@ -14,8 +14,7 @@
     <!-- Bootstrapk JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+   
 
 <style type="text/css">
 	.red {

@@ -53,6 +53,7 @@
 			<mapping path="/ReviewWrite" />
 			<mapping path="/AddToWishList" />
 			<mapping path="/AddToBasket" />
+			<mapping path="/BoardInquiryWrite" />
 			<beans:ref bean="authInterceptor" />
 		</interceptor>
 	</interceptors>

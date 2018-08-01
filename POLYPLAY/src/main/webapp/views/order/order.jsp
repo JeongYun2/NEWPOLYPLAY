@@ -83,7 +83,7 @@ function payCheck() {
 		<!-- 속성 값 -->
 		<tr>
 			
-			<td><img src="/polyplay/resources/contents${opvo.cImage}" class="img-fluid" /></td>
+			<td><div class="col-md-4"><img src="/polyplay/resources/contents${opvo.cImage}" class="img-fluid" /></div></td>
 			<td>${opvo.cSubject}</td>
 			<td>${opvo.oPrice}</td>
 		<%-- 	<input type="hidden" id="baPrice${status.count}" name="baPrice" value="${blvo.cPrice}"/> --%>

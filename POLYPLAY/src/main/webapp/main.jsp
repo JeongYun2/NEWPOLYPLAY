@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="resources/plugins/css/animate.min.css">
 <link rel="stylesheet" href="resources/plugins/css/nivo-lightbox.css">
 <link rel="stylesheet" href="resources/plugins/css/nivo_themes/default/default.css">
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 <!-- Font Awesome Style -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
@@ -69,6 +69,8 @@
         <li class="nav-item"> <a class="nav-link1" ></a></li>
         <li class="nav-item"> <a class="nav-link1" ></a></li>
         <li class="nav-item"> <a class="nav-link1" ></a></li>
+        <c:choose>
+        <c:when test='${sMemberMidx != null}'>
         <li class="dropdown nav-item">
                       <a href="#pablo" class="dropdown-toggle nav-link1" data-toggle="dropdown">마이페이지</a>
                       <div class="dropdown-menu">
@@ -78,9 +80,16 @@
                         <a href="${pageContext.request.contextPath}/MyOrderList" class="dropdown-item">주문내역</a>
                         <a href="${pageContext.request.contextPath}/MemberModify" class="dropdown-item">회원정보수정</a>
                      
-                     
                       </div>
-                    </li>
+        </li>
+        </c:when>
+        
+        <c:otherwise>
+    	<li class="nav-item"> <a class="nav-link1" href="${pageContext.request.contextPath}/MemberJoin">회원가입</a></li>
+        </c:otherwise>
+        
+        </c:choose>
+        
          <c:set var="midx" value="${sMemberMidx}" />
         <c:choose>
     	<c:when test='${sMemberMidx == null}'>            

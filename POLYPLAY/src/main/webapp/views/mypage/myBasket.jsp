@@ -15,12 +15,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 <script type="text/javascript">
 
 function orderCheck() {
 	
-//	alert("뭐여");
 	
 	var formname = document.frm;
 
@@ -87,7 +86,7 @@ function orderCheck() {
 		<!-- 속성 값 -->
 		<tr>
 			<td><input type="checkbox" id="cidx${status.count}" name="cidx" value="${blvo.cidx}"></td>
-			<td><img src="/polyplay/resources/contents${blvo.cImage}" class="img-fluid" /></td>
+			<td><div class="col-md-4"><img src="/polyplay/resources/contents${blvo.cImage}" class="img-fluid" /></div></td>
 			<td>${blvo.cSubject}</td>
 			<td>${blvo.cPrice}</td>
 			<td><a href="<%=request.getContextPath()%>/FromBaToWish?midx=${sMemberMidx}&cidx=${blvo.cidx}">찜하기</a></td>	
@@ -96,7 +95,7 @@ function orderCheck() {
 		</c:forEach>
 	</table>
 
-<input type="button"  id="order" name="order" value="구매하기" onclick="orderCheck();"  />
+<input  class="btn btn-primary" type="button"  id="order" name="order" value="구매하기" onclick="orderCheck();"  />
 
 
 

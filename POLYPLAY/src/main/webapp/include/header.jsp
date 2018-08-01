@@ -64,6 +64,9 @@
         <li class="nav-item"> <a class="nav-link" ></a></li>
         <li class="nav-item"> <a class="nav-link" ></a></li>
         <li class="nav-item"> <a class="nav-link" ></a></li>
+        
+        <c:choose>
+        <c:when test='${sMemberMidx != null}'>
         <li class="dropdown nav-item">
                       <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">마이페이지</a>
                       <div class="dropdown-menu">
@@ -74,7 +77,14 @@
                         <a href="${pageContext.request.contextPath}/MemberModify" class="dropdown-item">회원정보수정</a>
                      
                       </div>
-                    </li>
+        </li>
+        </c:when>
+        
+        <c:otherwise>
+    	<li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath}/MemberJoin">회원가입</a></li>
+        </c:otherwise>
+        
+        </c:choose>
      
         <c:set var="midx" value="${sMemberMidx}" />
         

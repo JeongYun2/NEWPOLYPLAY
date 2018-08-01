@@ -12,7 +12,7 @@
   <div class="container">
    
     <div class="row copy-footer">
-	   <div class="col-sm-6 col-md-3"><a href="${pageContext.request.contextPath}/BoardNoticeList">고객센터</a></div>	
+	   <div class="col-sm-6 col-md-3"><a href="${pageContext.request.contextPath}/BoardNoticeList">Customer Service Center</a></div>	
       <div class="col-sm-6 col-md-3"> &copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> <a target="_blank" rel="nofollow" href="https://grafreez.com/"></a> TEAM POLYPLAY </div>
       <div class="col-sm-6 col-md-3 pull-right text-xs-right">Created with <i class="fa fa-heart"></i></div>
     </div>
@@ -32,6 +32,6 @@
 <script src="resources/plugins/js/core.js"></script> 
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
 </html>

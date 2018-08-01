@@ -48,7 +48,7 @@
 		<c:forEach var="opvo" items="${myContentsList}" varStatus ="status">
 		<!-- 속성 값 -->
 		<tr>
-			<td><a href="<%=request.getContextPath()%>/ContentsPlay?cidx=${opvo.cidx}"><img src="/polyplay/resources/contents${opvo.cImage}" class="img-fluid" /></a></td>
+			<div class="col-md-4"><td><a href="<%=request.getContextPath()%>/ContentsPlay?cidx=${opvo.cidx}"><img src="/polyplay/resources/contents${opvo.cImage}" class="img-fluid" /></a></td></div>
 	
 		</tr>
 		</c:forEach>

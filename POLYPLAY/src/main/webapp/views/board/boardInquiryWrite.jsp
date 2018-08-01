@@ -92,7 +92,7 @@ $(document).ready(function(){
 }
 </style>
 
-<input type="hidden" name="midx" value="#{midx}"/>
+<input type="hidden" name="midx" value="${midx}"/>
 
 <table class=table1_1  width="1000" height="100"   style="margin-left: auto; margin-right: auto;">
 <tr>

@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="resources/plugins/css/animate.min.css">
 <link rel="stylesheet" href="resources/plugins/css/nivo-lightbox.css">
 <link rel="stylesheet" href="resources/plugins/css/nivo_themes/default/default.css">
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 <!-- Font Awesome Style -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>

@@ -20,7 +20,7 @@
 <br>
 <br>
 <br>
-<h1>MY 주문내역</h1>
+<h1>나의 주문내역</h1>
 <c:choose>
 	<c:when test="${sMemberMidx != null}">
 		<c:set var="midx" value="${sMemberMidx}" />

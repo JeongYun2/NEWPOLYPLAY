@@ -13,7 +13,7 @@
 <meta name="Description" content="">
 
 
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 <script language="javascript" src="resources/plugins/js/jquery-ui.min.js" type="text/javascript"></script>
 <script language="javascript" src="resources/plugins/js/jq.rolling.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="resources/plugins/css/jq.rolling.css"/>

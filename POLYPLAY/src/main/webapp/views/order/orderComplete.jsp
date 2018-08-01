@@ -70,14 +70,14 @@ function goMyOrder(){
 <table class="table table-striped table-bordered table-hover" style="text-align: center;">
 		<!-- 속성 이름 -->
 		<tr>
-			<th>cidx</th>
+			<th>작품번호</th>
 			<th>썸네일</th>
 			<th>제목</th>
 			<th>금액</th>
 			<th>주문일</th>
 			<th>결제방법</th>
 			<th>입금자명</th>
-			<th>결제금액</th>
+			<th>총결제금액</th>
 	
 		</tr>
 		
@@ -85,7 +85,7 @@ function goMyOrder(){
 		<!-- 속성 값 -->
 		<tr>
 			<td>${oclvo.cidx} ${status.count}</td>
-			<td><img src="/polyplay/resources/contents${oclvo.cImage}" class="img-fluid" /></td>
+			<td><div class="col-md-4"><img src="/polyplay/resources/contents${oclvo.cImage}" class="img-fluid" /></div></td>
 			<td>${oclvo.cSubject}</td>
 			<td>${oclvo.oPrice}</td>
 			<td>${oclvo.oWriteday}</td>

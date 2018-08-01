@@ -9,20 +9,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
 
 <script type="text/javascript">
-
-
-$(document).ready(function(){
-	
-//	alert("작동");
+window.onload = function(){
 	reviewList();
-    
-
-}); //다큐먼트레디끝
-
-
+}
 
 
 
@@ -91,15 +83,7 @@ function reviewList(){
 				 			 + "</table>");				
 
 				} 
-	/* 			
-		       <select name="rPoint">
-		  	 <option value="0">별점을 선택하세요.</option>
-		  	 <option value="1">★☆☆☆☆</option>
-		  	 <option value="2">★★☆☆☆</option>
-		  	 <option value="3">★★★☆☆</option>
-		  	 <option value="4">★★★★☆</option>
-		  	 <option value="5">★★★★★</option>
-		  	</select> */
+	
 				
 		});	  //ajax끝
 
@@ -107,7 +91,7 @@ function reviewList(){
 
 
 		
-	function likeUpdate(ridx){ //추천수업데이트
+	function likeUpdate(ridx) { //추천수업데이트
 			
 			var ridx = ridx;
 			var cidx = $("#cidx").val();
@@ -140,7 +124,7 @@ function reviewList(){
 		
 		
 		
-        function del(){	
+ <%--        function del(){	
         	var formname = document.frm;
         	var res;
         	res = confirm("삭제 하시겠습니까?");
@@ -153,9 +137,9 @@ function reviewList(){
         		return;
 
         		}
+         --%>
         
-        
-        function reviewWrite(){
+         function reviewWrite(){
         	
         	var formname = document.frm;
         	var res;

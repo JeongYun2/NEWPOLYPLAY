@@ -46,7 +46,7 @@
 		<c:forEach var="wlvo" items="${wishList}">
 		<!-- 속성 값 -->
 		<tr>
-			<td><a href="<%=request.getContextPath()%>/ContentsInfo?midx=${sMemberMidx}&cidx=${wlvo.cidx}"><img src="/polyplay/resources/contents${wlvo.cImage}" class="img-fluid" /></a></td>
+			<td><div class="col-md-4"><a href="<%=request.getContextPath()%>/ContentsInfo?midx=${sMemberMidx}&cidx=${wlvo.cidx}"><img src="/polyplay/resources/contents${wlvo.cImage}" class="img-fluid" /></a></div></td>
 			<td><a href="<%=request.getContextPath()%>/MyWishDelete?midx=${sMemberMidx}&cidx=${wlvo.cidx}">삭제</a></td>
 		</tr>
 		</c:forEach>

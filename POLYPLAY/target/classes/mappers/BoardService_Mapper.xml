@@ -44,7 +44,7 @@ select bidx,bSubcate,bSubject,bContent from POLY_BOARD where bDel_yn='N' and bid
 
 
 <select id="selectInquiryList" resultType="bvo">
-select * from POLY_BOARD  where bDel_yn='N' and bCate=#{bCate} order by bOridx desc, bDepth, bidx limit 1, 15
+select * from POLY_BOARD  where bDel_yn='N' and bCate=3 order by bOridx desc, bDepth, bidx limit 1, 15
 </select>
 
 
@@ -55,7 +55,7 @@ select bidx,bSubcate,bWriter,bSubject,bContent,bWriteday from POLY_BOARD where b
 
 <insert id="insertInquiry" parameterType="HashMap">
 insert into POLY_BOARD(bidx,midx,bCate,bSubcate,bWriter,bSubject,bContent,bWriteday,bModifyday,bIp,bDel_yn,bOridx,bPassword)
- values(default,#{midx},3,#{bSubcate},#{bWriter},#{bSubject},#{bContent},now(),null,#{bIp},'N',bidx,#{bPassword})																										
+ values(default,#{midx},3,#{bSubcate},#{bWriter},#{bSubject},#{bContent},now(),null,#{bIp},'N',0,#{bPassword})																										
 </insert>
 
 
